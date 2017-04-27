@@ -3,8 +3,13 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
   devise_scope :user do
-    root to: "devise/sessions#new"
+    get "/login", to: "devise/sessions#new"
   end
+  
+  get "/", to: "home#index"
+  get "/:user_id", to: "books#index"
+  get "/:user_id/book_list", to: "books#show"
+  get "/:user_id/add_a_book", to: "books#new"
   
   resources :books, :except => [:update]
   resources :search, :only => [:index]
