@@ -4,5 +4,8 @@ class UsersController < ApplicationController
 #    @search = Book.search(params[:q])
 #    @books = @search.result
 #  end
+  
+  def index
+  end
     
 end
