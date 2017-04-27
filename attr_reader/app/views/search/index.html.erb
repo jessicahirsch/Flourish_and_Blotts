@@ -1,0 +1,7 @@
+<%= render 'header' %>
+
+<%= render 'user_search' %>
+
+<% @BOOKLIST.each do |book| %>
+  <%= link_to (book.user_id, book.username) %>
+<% end %>

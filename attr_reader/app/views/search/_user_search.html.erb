@@ -1,0 +1,15 @@
+
+<%= search_form_for @books do |f| %>
+  <%= f.condition fields do |c| %>
+    <%= c.attribute_fields do |a| %>
+      <%= a.attribute_select %>
+    <% end %>
+    <%= c.predicate_select %>
+    <%= c.value_fields do |v| %>
+      <%= v.text_field :value %>
+    <% end %>
+  <% end %>
+
+  
+  <%= f.submit "Search" %>
+<% end %>

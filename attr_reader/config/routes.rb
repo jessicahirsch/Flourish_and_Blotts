@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get "/:user_id", to: "books#index"
   get "/:user_id/book_list", to: "books#show"
   get "/:user_id/add_a_book", to: "books#new"
-  
+  get "/:user_id/search", to: "search#index"
   resources :books, :except => [:update]
   resources :search, :only => [:index]
 
