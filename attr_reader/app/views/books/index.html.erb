@@ -1,6 +1,9 @@
 
 <% if user_signed_in? %>
   <h1>Goodbye</h1>
+  <% @books.each do |book| %>
+    <%= book[:title] %>
+  <% end %>
 <% end %>
 <h1>hello!</h1>
 
