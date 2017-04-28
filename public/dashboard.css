@@ -1,0 +1,67 @@
+body{
+	background: url('http://www.publicdomainpictures.net/pictures/200000/velka/book-in-stone-window.jpg');
+	background-size: 100vw 100vh;
+	margin: 0;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	background: #eee;
+}
+.container{
+	display: flex;
+}
+.header{
+	margin: 0;
+	font-family: 'Nova Flat', cursive;
+	padding: 10px;
+	color: #e74c3c;
+	font-size: 4.1em;
+	flex:1;
+}
+.search{
+	flex:1;
+}
+.searchform{
+	display:flex;
+	flex-direction: row;
+}
+.typey{
+	flex:1;
+	font-size: 1.4em;
+	background: transparent;
+	border: 0;
+  	outline: 0;
+ 	border-bottom: 1px solid black;
+ 	width: 250px;
+}
+.searchey{
+	flex:1;
+	display: inline-block;
+	background-image: url('https://maxcdn.icons8.com/windows8/PNG/512/Very_Basic/search-512.png');
+	background-repeat: no-repeat;
+	background-size: 40px 40px;
+	width: 40px;
+	height: 40px;
+	position: relative;
+}
+@media only screen and (max-width: 630px) {
+	.container{
+		flex-direction: column;
+	}
+	.header{
+		text-align: center;
+	}
+	.typey{
+		margin-left: 10vw;
+	}
+}
+
+img{
+	width: 80vw;
+}
+
+.booklist{
+	position: relative;
+	width: 80vw;
+	left: 10vw;
+	height: 100px;
+    background:#FFE4C4;
+}
