@@ -1,0 +1,61 @@
+<h1>Add a book</h1>
+
+<%= form_for("/:user_id/add_a_book", method: "get") do |f|%>
+  <%= f.collection_select(:search_type, "Author", "ISBN", "Title", include_blank: true)%>
+  <%= f.label_tag(:search_input, "Search") %>
+  <%= f.text_field_tag(:search_input) %>
+  <%= f.submit_tag("Add a book") %>
+<% end %>
+
+<%= form_tag ("/:user_id/add_a_book", method: "get") do %>
+<%= select_tag "search_type", :id => search_type, "<option>Author</option><option>ISBN</option><option>Title</option", include_blank: false%>
+<%= text_field_tag :search_input %>
+<%= submit_tag "Search keyword Name" %>
+<% end %>
+
+
+  def index
+    # response = HTTParty.get('http://api.eventful.com/json/events/search?location=Gainesville,fl&app_key=qvgN8xWBkP7t7GJt')
+    # @response = JSON.parse(response)["events"]["event"]
+    #parse the events to access the event inside of the api call.
+    @response = []
+  end
+
+ def search
+    @request = HTTParty.get(make_url)
+    @response = JSON.parse(@request)["events"]["event"]
+    render "events#index"
+  end
+  private
+  def make_url
+    base = "http://api.eventful.com/json/events/search?"
+    url_params = []
+    if params[:keyword]
+      #if this exist
+      url_params.push({keyword: "keyword", value: params[:keyword]})
+      #then generate an object for it and push it into an array
+    end
+    if params[:location]
+      #if this exists
+      url_params.push({keyword: "location", value: params[:location]})
+      #then genreate an object for it and push it into an array
+    end
+
+   url_string = url_params.reduce do |building, param|
+      # going thorugh array and reducing it down to string of parameters that we need tosend reduce feeds into each of the objects...
+      unless building
+        building = "#{param.keyword}=#{param.value}"
+        #if there is no building then its the first of the parameteres, which means you'll have the keyword to the value
+      else
+        building = "&#{param.keyword}=#{param.value}"
+        #if there are params there then you need the & sign plus key:value
+      end
+      building
+    end
+
+   full_url = "#{base}#{url_string}&app_key=qvgN8xWBkP7t7GJt"
+    full_url
+
+
+
+end

@@ -35,7 +35,7 @@ def book_details(body)
     title: body.items[book].volumeInfo.title,
     isbn: body.items[book].volumeInfo.industryIdentifiers[1].identifier,
     description: body.items[book].searchInfo.textSnippet,
-    authors: body.items[0].volumeInfo.authors.join(", ")
+    authors: body.items[book].volumeInfo.authors.join(", ")
   }
 
   end
