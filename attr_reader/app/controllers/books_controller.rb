@@ -1,11 +1,13 @@
 class BooksController < ApplicationController
-#  before_filter :set_search
   
+#  before_filter :set_search
+
   def index
     @books = Book.where(user_id: params[:user_id])
   end
 
   def show
+    @book = Book.find(params[:id])
     @books = Book.where(user_id: params[:user_id])
   end
 
@@ -28,6 +30,14 @@ class BooksController < ApplicationController
     Book.destroy(params[:id])
     redirect_to('/:user_id')
   end
+
+  def request_trade
+    #Making the book trade request, whatever that meanzs
+    # Send a message to the user or whatever?
+    book = Book.find(params[:id])
+    UserMailer.book_trade(book).deliver_now
+    redirect_to "/books"
+  end
   
   def search
     @q=Book.search(params[:q])
@@ -49,7 +59,4 @@ class BooksController < ApplicationController
   
   private
  
-  
-
-  
 end
