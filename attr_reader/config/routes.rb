@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get "/search/results", to: "books#results"
   get "/party", to: "books#party"
   get "/books/request_trade", to: "books#request_trade"
-
+  
 
   get "/:user_id", to: "books#index"
   get "/:user_id/book_list", to: "books#show"
