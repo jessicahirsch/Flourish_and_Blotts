@@ -4,4 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :books
+
+  # after_create :welcome_send
+  # def welcome_send
+  #   UserMailer.welcome_send().deliver
+  # end
+
 end
