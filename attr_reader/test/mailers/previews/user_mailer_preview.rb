@@ -1,9 +1,13 @@
 # Preview all emails at http://localhost:3000/rails/mailers/user_mailer
 class UserMailerPreview < ActionMailer::Preview
 
-  def welcome_email
+  def book_trade
     # book = Book.first
-    UserMailer.welcome_email()
+    UserMailer.book_trade()
+  end
+
+  def welcome_send
+    UserMailer.welcome_send()
   end
 
 end

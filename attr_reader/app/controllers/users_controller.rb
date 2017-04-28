@@ -8,10 +8,10 @@ class UsersController < ApplicationController
   def index
   end
 
-  def create
-    email_add = params['user']['email']
-    UserMailer.welcome_email(email_add).deliver_now
-    redirect_to(:back)
-  end
+  # def create
+  #   email_add = params['user']['email']
+  #   UserMailer.welcome_email(email_add).deliver_now
+  #   redirect_to(:back)
+  # end
 
 end
