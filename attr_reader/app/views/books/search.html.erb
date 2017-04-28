@@ -9,6 +9,6 @@
 
 <ul>
 <% @resu.each do |book| %>
-  <li><%= book.title %> owned by:  <%= book.user.email %> </li>
+  <li><%= book.title %> owned by:  <%= book.user.email %> Request book: <a href="/books/request_trade?id=<%= book.id %>">Click</a></li>
 <% end %>
 </ul>

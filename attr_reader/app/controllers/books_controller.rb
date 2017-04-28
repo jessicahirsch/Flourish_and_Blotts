@@ -1,14 +1,13 @@
 class BooksController < ApplicationController
 
-#  before_filter :set_search
-before_action :require_user
+  #  before_action :require_user
 
   def index
     if !user_signed_in?
       redirect_to "/"
     else
-    @books = Book.where(user_id: params[:user_id])
-  end
+      @books = Book.where(user_id: params[:user_id])
+    end
   end
 
   def show
@@ -52,7 +51,7 @@ before_action :require_user
     UserMailer.book_trade(book).deliver_now
     redirect_to "/books"
   end
-  
+
 
   def search
     @q=Book.search(params[:q])
@@ -60,23 +59,34 @@ before_action :require_user
     render "search"
   end
 
-def book_details(body)
+  def book_details(body)
+    pp body
+    (body["items"]).map do |book|
+      if book["volumeInfo"]["industryIdentifiers"]
 
-(body["items"]).map do |book|
-  title = book["volumeInfo"]["title"]
-  isbn = book["volumeInfo"]["industryIdentifiers"][0]["identifier"]
-  description = book["volumeInfo"]["description"]
-  authors = book["volumeInfo"]["authors"]
-  {
-    title: title ? title : "",
-    isbn: isbn ? isbn : "",
-    description: description ? description : "",
-    authors: authors ? authors.join(", ") : ""
-  }
-
-
+        title = book["volumeInfo"]["title"]
+        isbn = book["volumeInfo"]["industryIdentifiers"][0]["identifier"]
+        description = book["volumeInfo"]["description"]
+        authors = book["volumeInfo"]["authors"]
+        {
+          title: title ? title : "",
+          isbn: isbn ? isbn : "",
+          description: description ? description : "",
+          authors: authors ? authors.join(", ") : ""
+          }
+      else
+        title = book["volumeInfo"]["title"]
+        description = book["volumeInfo"]["description"]
+        authors = book["volumeInfo"]["authors"]
+        {
+          title: title ? title : "",
+          isbn: "",
+          description: description ? description : "",
+          authors: authors ? authors.join(", ") : ""
+          }
+      end
     end
-end
+  end
 
 
 end
