@@ -1,0 +1,98 @@
+<DOCTYPE html>
+	<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="https://fonts.googleapis.com/css?family=Nova+Flat" rel="stylesheet">
+		<title>Attr_Reader</title>
+		<style>
+		body{
+			background: url('https://upload.wikimedia.org/wikipedia/commons/5/5a/Books_HD_%288314929977%29.jpg');
+			background-size: 150vw 100vh;
+			color: white;
+		}
+		.container{
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
+		.a,.c{
+			padding: 10px;
+		}
+		.a{
+			flex: 2;
+			font-family: 'Nova Flat', cursive;
+		}
+		.title{
+			color: #e74c3c;
+		}
+		.c{
+			flex: 1;
+			margin-top: 100px;
+		}
+		.trade{
+			margin-left: 20px;
+			margin-right: 20px;
+			text-align: center;
+		}
+		.logo{
+			font-size: 6.1em;
+		}
+		@media only screen and (max-width: 430px) {
+			.container{
+				flex-direction: column;
+			}
+			.c{
+				margin-top: 0px;
+				text-align: center;
+			}
+		}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="a"><h1 class="title logo">Attr_Reader</h1>
+			<br/>
+			<br/>
+			<h1 class="trade">Trade your old books for new ones</h1>
+			</div>
+	
+			<div class="c"><h1 class="title">Login</h1>
+				<br>
+				<form class="config">
+					<div class="c1"><label>Email &nbsp;&nbsp; &nbsp;</label><input>
+					<br/></div>
+					<div class="c2"><label>Password</label><input>
+					<br/></div>
+					<div class="c3"><input type="checkbox"><label>Remember Me</label>
+					<br/></div>
+					<input type="submit"/>
+					<br/>
+					<a href="#">Sign Up</a>
+				</form>	
+			</div>
+		</div>
+		<script>
+			let trade = document.getElementsByClassName('trade')[0];
+				setTimeout(function(){
+					trade.style.color = "000"
+					setTimeout(function(){
+						trade.style.color = "white"
+						setTimeout(function(){
+							trade.style.color = "darkgrey"
+							trade.innerHTML = "Explore our books"
+							setTimeout(function(){
+								trade.style.color = "black"
+								setTimeout(function(){
+								trade.innerHTML = "Swap your old textbooks for ones that you need"
+								},300);
+							},300);
+						},100);
+					},300);
+				},300);
+
+					
+				
+			
+		</script>
+	</body>
+	</html>
