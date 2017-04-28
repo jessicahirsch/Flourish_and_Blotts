@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :books
 
-  # after_create :welcome_send
+  # after_create  :welcome_send
   # def welcome_send
   #   UserMailer.welcome_send().deliver
   # end
