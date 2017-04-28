@@ -1,19 +1,15 @@
 class UserMailer < ApplicationMailer
   default from: "randomjessicaokay@gmail.com"
 
-  def book_trade()
-    # @users = users.email
-    # @email  = email
-    @book = @book
-    # @book = @book.title
+  def book_trade(book = {})
     @greeting = "Greetings!"
     @url  = '#'
-    puts "Attempting to send mail!"
+    puts "Attempting to send mail to #{book.user.email}"
 
-    mail(to: @user, subject: 'Request to Trade at attr_reader!')
+    mail(to: book.user.email, subject: "Request to trade: #{book.title}")
   end
 
-  def welcome_send()
+  def welcome_send
     @user = users
     mail to: users.email, subject: "Welcome!"
   end
