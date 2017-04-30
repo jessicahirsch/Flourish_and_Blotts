@@ -1,18 +1,28 @@
 class BooksController < ApplicationController
-
-  #  before_action :require_user
+#  before_action :require_user
 
   def index
-    if !user_signed_in?
-      redirect_to "/"
-    else
+    if user_signed_in?
+      @user = current_user.id
       @books = Book.where(user_id: params[:user_id])
+    else
+      redirect_to "/login"
     end
   end
 
   def show
-    @book = Book.find(params[:id])
-    @books = Book.where(user_id: params[:user_id])
+    if user_signed_in?
+      userid = params[:user_id]
+      @user = current_user.id
+      @books = Book.where(user_id: params[:user_id])
+      if @user.to_s == params[:user_id]
+        @message = "This is the logged in user"
+      else
+        @message = "Oh no"
+      end
+    else
+      redirect_to "/login"
+    end
   end
 
   def new
@@ -21,12 +31,19 @@ class BooksController < ApplicationController
   end
 
   def party
+    if params[:search_type] == "Title"
+      @search_type = "inTitle"
+    elsif params[:search_type] == "Author"
+      @search_type = "inAuthor"
+    else
+      @search_type = "inIsbn"
+    end
+
     @search_input = params[:search_input].split(" ").join("+")
-    @search_type = params[:search_type]
     response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=#{@search_input}+#{@search_type}", format: :plain)
     body = JSON.parse(response)
     @book_details = book_details(body)
-    render "new"
+    redirect_to("/:user_id")
   end
 
   def create
@@ -54,16 +71,16 @@ class BooksController < ApplicationController
 
 
   def search
-    @q=Book.search(params[:q])
-    @resu = @q.result.includes(:user)
+    # using ransack
+    @search = Book.search(params[:q])
+    @search_result = @search.result.includes(:user).where.not(user_id: current_user.id)
     render "search"
   end
 
   def book_details(body)
-    pp body
     (body["items"]).map do |book|
       if book["volumeInfo"]["industryIdentifiers"]
-
+        pp body
         title = book["volumeInfo"]["title"]
         isbn = book["volumeInfo"]["industryIdentifiers"][0]["identifier"]
         description = book["volumeInfo"]["description"]
