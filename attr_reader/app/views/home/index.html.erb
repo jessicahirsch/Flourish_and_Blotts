@@ -2,12 +2,13 @@
 
 <% if user_signed_in? %>
   <h1>welcome to attr_reader</h1>
-  <a href="/search" >Search database for books already added</a><br>
-    <a href="/<%= @user %>" >Your profile</a><br>
     <a href="/<%= @user %>/add_a_book" >Add a book from API!</a><br>
-    <a href="/<%= @user %>/book_list" >Your book list</a>
+    <a href="/search" >Search database for books already added</a><br>
+    <a href="/<%= @user %>/book_list" >Your book list</a><br>
+    <a href="/<%= @user %>" >Your profile</a><br>
+    <br><%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
 <% else %>
-<a href="/login" >login</a>
+<a href="/login" >login</a><br>
 
 
 <% end %>
