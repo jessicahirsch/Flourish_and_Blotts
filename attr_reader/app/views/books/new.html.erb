@@ -1,5 +1,5 @@
 <h1>Add a book</h1>
-
+<a href="/" >Home</a>
 <%= form_tag "/party", method: "get", url: ("/party") do %>
 
 <%= select_tag :search_type, options_for_select(["Title", "Author", "ISBN"].map {|x| [x, x]}) %>
