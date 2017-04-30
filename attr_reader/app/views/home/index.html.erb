@@ -5,7 +5,8 @@
     <a href="/<%= @user %>/add_a_book" >Add a book from API!</a><br>
     <a href="/<%= @user %>/book_list" >Detailed Book List</a><br>
     <a href="/<%= @user %>" >My Bookshelf</a><br>
-    <br><%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+    <a href="/:user_id/profile" >My Profile Page</a>
+    <br><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
 <% else %>
 
 <% end %>
