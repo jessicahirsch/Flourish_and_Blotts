@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     get "/login", to: "devise/sessions#new"
+    get "/users/sign_out", to: "devise/sessions#new"
+
   end
 
   get "/", to: "home#index"
