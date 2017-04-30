@@ -1,4 +1,3 @@
-Request book: <a href="/books/request_trade?id=<%= @book.id %>">Click</a>
 
 
 
@@ -10,6 +9,7 @@ Request book: <a href="/books/request_trade?id=<%= @book.id %>">Click</a>
       <% @books.each do |book| %>
         <li><%= book[:title] %> - <%= book[:author] %><br>
           ISBN: <%= book[:isbn] %> </li>
+Request book: <a href="/books/request_trade?id=<%= book.id %>">Click</a>
       <% end %>
     </ul>
     <a href="/search" >Search for book</a>

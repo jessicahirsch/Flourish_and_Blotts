@@ -80,7 +80,6 @@ class BooksController < ApplicationController
   def book_details(body)
     (body["items"]).map do |book|
       if book["volumeInfo"]["industryIdentifiers"]
-        pp body
         title = book["volumeInfo"]["title"]
         isbn = book["volumeInfo"]["industryIdentifiers"][0]["identifier"]
         description = book["volumeInfo"]["description"]
