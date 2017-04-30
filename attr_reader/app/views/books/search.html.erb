@@ -1,3 +1,6 @@
+<% if user_signed_in? %>
+<h1>signed in</h1><br>
+
 <%= render 'header' %>
 
 <a href="/" >Home</a>
@@ -14,3 +17,5 @@
 </ul>
 
 <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+
+<% end %>

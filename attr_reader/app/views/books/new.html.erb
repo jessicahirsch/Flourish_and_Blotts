@@ -1,3 +1,5 @@
+<% if user_signed_in? %>
+<h1>signed in</h1><br>
 <h1>Add a book</h1>
 <a href="/" >Home</a>
 <%= form_tag "/party", method: "get", url: ("/party") do %>
@@ -22,4 +24,4 @@
 
 <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
 
-
+<% end %>
