@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get "/:user_id/add_a_book", to: "books#new"
 
 
-
+  get "/sign_up", to: "devise/registrations#new"
 
   resources :books, :except => [:update]
 
