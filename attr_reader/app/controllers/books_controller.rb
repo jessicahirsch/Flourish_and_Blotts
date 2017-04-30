@@ -35,19 +35,12 @@ class BooksController < ApplicationController
   end
 
   def party
-    if params[:search_type] == "Title"
-      @search_type = "inTitle"
-    elsif params[:search_type] == "Author"
-      @search_type = "inAuthor"
-    else
-      @search_type = "inIsbn"
-    end
-
+    @search_type = params[:search_type]
     @search_input = params[:search_input].split(" ").join("+")
     response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=#{@search_input}+#{@search_type}", format: :plain)
     body = JSON.parse(response)
     @book_details = book_details(body)
-    redirect_to("/:user_id")
+    render "new"
   end
 
   def create
@@ -83,27 +76,31 @@ class BooksController < ApplicationController
 
   def book_details(body)
     (body["items"]).map do |book|
+      pp body
       if book["volumeInfo"]["industryIdentifiers"]
-        pp body
         title = book["volumeInfo"]["title"]
         isbn = book["volumeInfo"]["industryIdentifiers"][0]["identifier"]
+        genre = book["volumeInfo"]["categories"][0]
         description = book["volumeInfo"]["description"]
         authors = book["volumeInfo"]["authors"]
         {
           title: title ? title : "",
           isbn: isbn ? isbn : "",
           description: description ? description : "",
-          authors: authors ? authors.join(", ") : ""
+          authors: authors ? authors.join(", ") : "",
+          genre: genre ? genre : ""
           }
       else
         title = book["volumeInfo"]["title"]
         description = book["volumeInfo"]["description"]
         authors = book["volumeInfo"]["authors"]
+        genre = book["volumeInfo"]["categories"][0]
         {
           title: title ? title : "",
           isbn: "",
           description: description ? description : "",
-          authors: authors ? authors.join(", ") : ""
+          authors: authors ? authors.join(", ") : "",
+          genre: genre ? genre : ""
           }
       end
     end
