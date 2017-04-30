@@ -64,7 +64,7 @@ class BooksController < ApplicationController
       description: params[:description],
       genre: params[:genre],
       user_id: current_user.id)
-    redirect_to("/:user_id")
+    redirect_to("/#{current_user.id}")
   end
 
   def destroy
