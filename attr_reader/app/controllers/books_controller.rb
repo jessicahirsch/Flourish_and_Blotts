@@ -5,6 +5,10 @@ class BooksController < ApplicationController
     if user_signed_in?
       @user = current_user.id
       @books = Book.where(user_id: params[:user_id])
+    # elsif params[:id] == "sign_up"
+    #   redirect_to "/users/sign_up"
+    elsif request.path == "/sign_up" || request.path == "/signup"
+      redirect_to "/users/sign_up"
     else
       redirect_to "/login"
     end
