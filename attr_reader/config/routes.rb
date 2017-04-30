@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     get "/login", to: "devise/sessions#new"
+    get "/users/sign_out", to: "devise/sessions#new"
+
   end
 
   get "/", to: "home#index"
@@ -18,7 +20,7 @@ Rails.application.routes.draw do
   get "/:user_id/add_a_book", to: "books#new"
 
 
-
+  get "/sign_up", to: "devise/registrations#new"
 
   resources :books, :except => [:update]
 
