@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default from: "randomjessicaokay@gmail.com"
+  # default from: "randomjessicaokay@gmail.com"
 
   def book_trade(book = {})
     @greeting = "Greetings!"

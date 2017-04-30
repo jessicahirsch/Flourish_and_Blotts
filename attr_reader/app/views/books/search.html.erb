@@ -1,6 +1,6 @@
 <%= render 'header' %>
 
-
+<a href="/" >Home</a>
 <%= search_form_for @search, url: ('/search')  do |f| %>
   <%= f.label "Search by Title, Author, Genre or ISBN" %>
   <%= f.search_field :title_or_author_or_isbn_or_genre_cont %>
@@ -9,6 +9,6 @@
 
 <ul>
 <% @search_result.each do |book| %>
-  <li><%= book.title %> owned by:  <%= book.user.email %> Request book: <a href="/books/request_trade?id=<%= book.id %>">Click</a></li>
+  <li><%= book.title %>, <%= book.author %>, <%= book.genre %> owned by:  <%= book.user.email %> Request book: <a href="/books/request_trade?id=<%= book.id %>">Click</a></li>
 <% end %>
 </ul>

@@ -5,6 +5,10 @@ class BooksController < ApplicationController
     if user_signed_in?
       @user = current_user.id
       @books = Book.where(user_id: params[:user_id])
+    # elsif params[:id] == "sign_up"
+    #   redirect_to "/users/sign_up"
+    elsif request.path == "/sign_up" || request.path == "/signup"
+      redirect_to "/users/sign_up"
     else
       redirect_to "/login"
     end
@@ -31,19 +35,12 @@ class BooksController < ApplicationController
   end
 
   def party
-    if params[:search_type] == "Title"
-      @search_type = "inTitle"
-    elsif params[:search_type] == "Author"
-      @search_type = "inAuthor"
-    else
-      @search_type = "inIsbn"
-    end
-
+    @search_type = params[:search_type]
     @search_input = params[:search_input].split(" ").join("+")
     response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=#{@search_input}+#{@search_type}", format: :plain)
     body = JSON.parse(response)
     @book_details = book_details(body)
-    redirect_to("/:user_id")
+    render "new"
   end
 
   def create
@@ -51,6 +48,7 @@ class BooksController < ApplicationController
       author: params[:authors],
       isbn: params[:isbn],
       description: params[:description],
+      genre: params[:genre],
       user_id: current_user.id)
     redirect_to("/:user_id")
   end
@@ -79,17 +77,19 @@ class BooksController < ApplicationController
 
   def book_details(body)
     (body["items"]).map do |book|
-      if book["volumeInfo"]["industryIdentifiers"]
-        pp body
+      pp body
+      if book["volumeInfo"]["industryIdentifiers"] && book["volumeInfo"]["categories"][0]
         title = book["volumeInfo"]["title"]
         isbn = book["volumeInfo"]["industryIdentifiers"][0]["identifier"]
+        genre = book["volumeInfo"]["categories"][0]
         description = book["volumeInfo"]["description"]
         authors = book["volumeInfo"]["authors"]
         {
           title: title ? title : "",
           isbn: isbn ? isbn : "",
           description: description ? description : "",
-          authors: authors ? authors.join(", ") : ""
+          authors: authors ? authors.join(", ") : "",
+          genre: genre ? genre : ""
           }
       else
         title = book["volumeInfo"]["title"]
@@ -99,7 +99,8 @@ class BooksController < ApplicationController
           title: title ? title : "",
           isbn: "",
           description: description ? description : "",
-          authors: authors ? authors.join(", ") : ""
+          authors: authors ? authors.join(", ") : "",
+          genre: ""
           }
       end
     end
