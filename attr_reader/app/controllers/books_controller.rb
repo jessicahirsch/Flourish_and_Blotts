@@ -98,7 +98,7 @@ class BooksController < ApplicationController
   def book_details(body)
     (body["items"]).map do |book|
       pp body
-      if book["volumeInfo"]["industryIdentifiers"] && book["volumeInfo"]["categories"][0]
+      if (book["volumeInfo"]["industryIdentifiers"] == true && book["volumeInfo"]["categories"][0] == true)
         title = book["volumeInfo"]["title"]
         isbn = book["volumeInfo"]["industryIdentifiers"][0]["identifier"]
         genre = book["volumeInfo"]["categories"][0]
