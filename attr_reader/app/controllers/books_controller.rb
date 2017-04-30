@@ -42,6 +42,16 @@ class BooksController < ApplicationController
     end
   end
 
+  def profile
+    if user_signed_in?
+    @user = User.find(current_user.id)
+    elsif request.path == "/sign_up" || request.path == "/signup"
+      redirect_to "/users/sign_up"
+    else
+      redirect_to "/login"
+    end
+  end
+
   def party
     if user_signed_in?
     @search_type = params[:search_type]
