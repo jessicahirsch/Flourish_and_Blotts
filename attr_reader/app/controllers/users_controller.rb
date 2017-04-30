@@ -5,7 +5,8 @@ class UsersController < ApplicationController
 #    @books = @search.result
 #  end
 
-  def index
+  def delete
+
   end
 
   # def create

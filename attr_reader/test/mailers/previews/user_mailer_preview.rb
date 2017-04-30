@@ -6,8 +6,8 @@ class UserMailerPreview < ActionMailer::Preview
     UserMailer.book_trade()
   end
 
-  def welcome_send
-    UserMailer.welcome_send()
-  end
+  # def welcome_send
+  #   UserMailer.welcome_send()
+  # end
 
 end

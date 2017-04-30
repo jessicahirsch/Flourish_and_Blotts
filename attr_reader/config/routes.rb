@@ -4,7 +4,14 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     get "/login", to: "devise/sessions#new"
+    get "/users/sign_out", to: "devise/sessions#logout"
+    get "/sign_out", to: "devise/sessions#logout"
+    get '/users/sign_out' => 'devise/sessions#destroy'
+
   end
+
+  # devise_for :users do
+  # end
 
   get "/", to: "home#index"
   get "/search", to: "books#search"
