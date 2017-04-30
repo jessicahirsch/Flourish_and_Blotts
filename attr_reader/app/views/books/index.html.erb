@@ -4,7 +4,8 @@
   <ul>
     <% @books.each do |book| %>
       <li><%= book[:title] %> - <%= book[:author] %><br>
-        ISBN: <%= book[:isbn] %> </li>
+        ISBN: <%= book[:isbn] %><br>
+        Genre: <%= book[:genre] %></li>
     <% end %>
   </ul>
     <a href="/search" >Search database for books already added</a><br>
