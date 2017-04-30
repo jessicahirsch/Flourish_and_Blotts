@@ -24,23 +24,37 @@ class BooksController < ApplicationController
       else
         @message = "Oh no"
       end
+    elsif request.path == "/sign_up" || request.path == "/signup"
+      redirect_to "/users/sign_up"
     else
       redirect_to "/login"
     end
   end
 
   def new
+    if user_signed_in?
     @user_id = params[:user_id]
     @book_details = []
+    elsif request.path == "/sign_up" || request.path == "/signup"
+      redirect_to "/users/sign_up"
+    else
+      redirect_to "/login"
+    end
   end
 
   def party
+    if user_signed_in?
     @search_type = params[:search_type]
     @search_input = params[:search_input].split(" ").join("+")
     response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=#{@search_input}+#{@search_type}", format: :plain)
     body = JSON.parse(response)
     @book_details = book_details(body)
     render "new"
+    elsif request.path == "/sign_up" || request.path == "/signup"
+      redirect_to "/users/sign_up"
+    else
+      redirect_to "/login"
+    end
   end
 
   def create
@@ -69,10 +83,16 @@ class BooksController < ApplicationController
 
 
   def search
+    if user_signed_in?
     # using ransack
     @search = Book.search(params[:q])
     @search_result = @search.result.includes(:user).where.not(user_id: current_user.id)
     render "search"
+    elsif request.path == "/sign_up" || request.path == "/signup"
+      redirect_to "/users/sign_up"
+    else
+      redirect_to "/login"
+    end
   end
 
   def book_details(body)
