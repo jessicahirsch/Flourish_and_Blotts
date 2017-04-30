@@ -12,3 +12,5 @@
   <li><%= book.title %>, <%= book.author %>, <%= book.genre %> owned by:  <%= book.user.email %> Request book: <a href="/books/request_trade?id=<%= book.id %>">Click</a></li>
 <% end %>
 </ul>
+
+<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
