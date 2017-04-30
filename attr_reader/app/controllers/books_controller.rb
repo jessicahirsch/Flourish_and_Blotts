@@ -48,6 +48,7 @@ class BooksController < ApplicationController
       author: params[:authors],
       isbn: params[:isbn],
       description: params[:description],
+      genre: params[:genre],
       user_id: current_user.id)
     redirect_to("/:user_id")
   end
@@ -77,7 +78,7 @@ class BooksController < ApplicationController
   def book_details(body)
     (body["items"]).map do |book|
       pp body
-      if book["volumeInfo"]["industryIdentifiers"]
+      if book["volumeInfo"]["industryIdentifiers"] && book["volumeInfo"]["categories"][0]
         title = book["volumeInfo"]["title"]
         isbn = book["volumeInfo"]["industryIdentifiers"][0]["identifier"]
         genre = book["volumeInfo"]["categories"][0]
@@ -94,13 +95,12 @@ class BooksController < ApplicationController
         title = book["volumeInfo"]["title"]
         description = book["volumeInfo"]["description"]
         authors = book["volumeInfo"]["authors"]
-        genre = book["volumeInfo"]["categories"][0]
         {
           title: title ? title : "",
           isbn: "",
           description: description ? description : "",
           authors: authors ? authors.join(", ") : "",
-          genre: genre ? genre : ""
+          genre: ""
           }
       end
     end
