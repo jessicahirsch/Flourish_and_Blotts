@@ -31,19 +31,19 @@ class BooksController < ApplicationController
   end
 
   def party
-    if params[:search_type] == "Title"
-      @search_type = "inTitle"
-    elsif params[:search_type] == "Author"
-      @search_type = "inAuthor"
-    else
-      @search_type = "inIsbn"
-    end
-
+#    if params[:search_type] == "Title"
+#      @search_type = "inTitle"
+#    elsif params[:search_type] == "Author"
+#      @search_type = "inAuthor"
+#    else
+#      @search_type = "inIsbn"
+#    end
+    @search_type = params[:search_type]
     @search_input = params[:search_input].split(" ").join("+")
     response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=#{@search_input}+#{@search_type}", format: :plain)
     body = JSON.parse(response)
     @book_details = book_details(body)
-    redirect_to("/:user_id")
+    render "new"
   end
 
   def create
