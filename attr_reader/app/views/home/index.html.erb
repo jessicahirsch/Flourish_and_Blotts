@@ -6,6 +6,7 @@
     <a href="/<%= @user %>" >Your profile</a><br>
     <a href="/<%= @user %>/add_a_book" >Add a book from API!</a><br>
     <a href="/<%= @user %>/book_list" >Your book list</a>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
 <% else %>
 <a href="/login" >login</a>
 
