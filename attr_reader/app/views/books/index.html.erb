@@ -1,10 +1,17 @@
 
 <% if user_signed_in? %>
-  <h1>Goodbye</h1>
-  <% @books.each do |book| %>
-    <%= book[:title] %>
+  <h1>signed in</h1>
+  <ul>
+    <% @books.each do |book| %>
+      <li><%= book[:title] %> - <%= book[:author] %><br>
+        ISBN: <%= book[:isbn] %> </li>
+    <% end %>
+  </ul>
+    <a href="/search" >Search for book</a>
+    <a href="/<%= @user %>" >Your profile</a>
+    <a href="/<%= @user %>/add_a_book" >Add a book!</a>
+    <a href="/<%= @user %>/book_list" >Your book list</a>
   <% end %>
-<% end %>
 <h1>hello!</h1>
 
 <a href="/login" >login</a>
