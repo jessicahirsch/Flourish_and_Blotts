@@ -21,6 +21,10 @@ end
   # go into views and add the fields
   # sanitize the inputs and insert them into the database
 
+  # def welcome_email
+  #   super
+  #   UserMailer.welcome_send(user).deliver_now unless user.invalid?
+  # end
 
   # GET /resource/sign_up
   # def new

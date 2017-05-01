@@ -5,6 +5,8 @@ class BooksController < ApplicationController
     if user_signed_in?
       @user = current_user.id
       @books = Book.where(user_id: params[:user_id])
+      @books_array = Book.where(user_id: params[:user_id]).length
+      p @books_array
     # elsif params[:id] == "sign_up"
     #   redirect_to "/users/sign_up"
     elsif request.path == "/sign_up" || request.path == "/signup"
@@ -17,11 +19,14 @@ class BooksController < ApplicationController
   def show
     if user_signed_in?
       userid = params[:user_id]
-      @user = current_user.id
-      @books = Book.where(user_id: params[:user_id])
+      @books_array = Book.where(user_id: params[:user_id]).length
+      @userid = params[:user_id]
+      @user = current_user.id.to_s
       if @user.to_s == params[:user_id]
+        @books = Book.where(user_id: params[:user_id])
         @message = "This is the logged in user"
       else
+        @books = Book.where(user_id: params[:user_id])
         @message = "Oh no"
       end
     elsif request.path == "/sign_up" || request.path == "/signup"
@@ -75,22 +80,37 @@ class BooksController < ApplicationController
       genre: params[:genre],
       user_id: current_user.id,
       status: "Shelfed")
-    redirect_to("/:user_id")
+    redirect_to("/#{current_user.id}")
   end
 
   def destroy
     Book.destroy(params[:id])
-    redirect_to('/:user_id')
+    redirect_to("/#{current_user.id}")
   end
 
 
   def request_trade
     #Making the book trade request, whatever that meanzs
     # Send a message to the user or whatever?
-    the_book = Book.find(params[:id])
-    UserMailer.book_trade(the_book).deliver_now
-    the_book.update_attribute(:status, "Requested")
+
+    @current_user = User.find(current_user.id)
+    book = Book.find(params[:id])
+    UserMailer.book_trade(book, @current_user).deliver_now
+    book.update_attribute(:status, "Requested")
     redirect_to "/books"
+  end
+
+  def new
+    super
+  end
+
+  def create
+    super
+  end
+
+  def welcome_send
+    @current_user = User.find(current_user.id)
+    UserMailer.welcome_send(@current_user).deliver_now
   end
 
 
