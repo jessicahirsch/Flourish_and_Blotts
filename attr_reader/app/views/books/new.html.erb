@@ -1,0 +1,27 @@
+<% if user_signed_in? %>
+<h1>signed in</h1><br>
+<h1>Add a book</h1>
+<a href="/" >Home</a>
+<%= form_tag "/party", method: "get", url: ("/party") do %>
+
+<%= select_tag :search_type, options_for_select(["Title", "Author", "ISBN"].map {|x| [x, x]}) %>
+<%= text_field_tag :search_input %>
+<%= submit_tag "Find your Book" %>
+<% end %>
+
+<br>
+<br>
+
+<% @book_details.each do |book| %>
+<p> <%= book[:title] %><br>
+<%= book[:authors] %><br>
+<%= book[:isbn] %><br>
+<%= book[:description] %><br>
+<%= book[:genre] %><br>
+<%= button_to "Add Book to Shelf", {action: "create"}, params: {"title" => book[:title] , "authors" => book[:authors], "isbn" => book[:isbn], "description" => book[:description], "genre" => book[:genre], "user_id" => current_user.id} %>
+
+<% end %>
+
+<br><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+
+<% end %>

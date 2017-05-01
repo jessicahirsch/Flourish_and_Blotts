@@ -1,7 +1,22 @@
 
 <% if user_signed_in? %>
-  <h1>Goodbye</h1>
-<% end %>
-<h1>hello!</h1>
 
-<a href="/login" >login</a>
+  <h1>signed in</h1>
+  <ul>
+    <% @books.each do |book| %>
+      <li><%= book[:title] %> - <%= book[:author] %><br>
+        ISBN: <%= book[:isbn] %><br>
+        Genre: <%= book[:genre] %></li>
+    <% end %>
+  </ul>
+    <a href="/" >Home</a><br>
+    <a href="/<%= @user %>/add_a_book" >Add a book from API!</a><br>
+    <a href="/search" >Search database for books already added</a><br>
+    <a href="/<%= @user %>/book_list" >Detailed Book List</a><br>
+    <a href="/users/edit" >Edit your info dude</a><br>
+    <a href="/:user_id/profile" >My Profile Page</a>
+
+    <br/>
+    <br><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+
+  <% end %>
