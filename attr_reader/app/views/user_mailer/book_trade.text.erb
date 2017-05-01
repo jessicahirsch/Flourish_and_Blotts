@@ -1,7 +1,11 @@
 
-UserMailer#book_trade
+You've got a book request!
 ===============================================
 
   <%= @greeting %>
-  You have receieved a trade request from...
+  You have receieved a trade request from <%= @recipient.firstname %>!
 
+  Please send the book to:
+  <%= @recipient.street %> <%= @recipient.apt_num %>
+  <%= @recipient.city %>, <%= @recipient.state %>
+  <%= @recipient.zip_code %>

@@ -1,11 +1,11 @@
 class UserMailer < ApplicationMailer
   # default from: "randomjessicaokay@gmail.com"
 
-  def book_trade(book = {})
+  def book_trade(book = {}, user)
     @greeting = "Greetings!"
     @url  = '#'
     puts "Attempting to send mail to #{book.user.email}"
-
+    @recipient = user
     mail(to: book.user.email, subject: "Request to trade: #{book.title}")
   end
 
