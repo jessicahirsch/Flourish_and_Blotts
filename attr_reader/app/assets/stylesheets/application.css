@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+#bookshelf {
+  position: relative;
+  height: 200px;
+}
+
+#bookshelf > div {
+  position: absolute;
+  width: 200px;
+  height: 20px;
+  display: block;
+  background-size: auto;
+  transform: rotate(270deg);
+  text-align: center;
+  top: 100px;
+}
