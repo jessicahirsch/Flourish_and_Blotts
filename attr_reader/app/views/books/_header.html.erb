@@ -1,1 +1,13 @@
 <h2>(this is our test header)</h2>
+  <div class="navbar">
+  	<a href="#" class="logo">Attr Reader</a>
+  
+  <a href="/search" >Search database for books already added</a>
+    <a href="/<%= @user %>/add_a_book" >Add a book from API!</a>
+    
+    <a href="/<%= @user %>/book_list" >Detailed Book List</a>
+    <a href="/<%= @user %>" >My Bookshelf</a>
+
+    <a href="/:user_id/profile" >My Profile Page</a>
+    <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+    </div>

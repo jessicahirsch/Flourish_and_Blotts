@@ -1,5 +1,6 @@
 <% if user_signed_in? %>
-<h1>signed in</h1><br>
+<%= render 'layouts/header' %>
+<br>
 <h1>Add a book</h1>
 <a href="/" >Home</a>
 <%= form_tag "/party", method: "get", url: ("/party") do %>

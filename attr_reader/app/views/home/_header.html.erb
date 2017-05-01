@@ -1,0 +1,21 @@
+<div class="navbar">
+  	<div class="navitem"><a href="#">Attr Reader</a></div>
+  	<div class="navitem"><a href="/search">Find Books</a></div>
+    
+ 	<div class="dropdown navitem">
+	  <a class="profile">My Account</a>
+	  <div class="dropdown-content">
+	  	<p><a href="/:user_id/profile">My Profile</a></p>
+	    <p><a href="/<%= @user %>" >My Bookshelf</a></p>
+	    <p><a href="/<%= @user %>/add_a_book" >Add a new book to your list</a></p>
+	    <p><a href="/<%= @user %>/book_list" >Detailed Book List</a></p>
+	    <p><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></p>	    
+  	  </div>
+	</div>
+
+    
+  
+</div>
+
+   
+    
