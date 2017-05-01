@@ -13,8 +13,9 @@
     <a href="/" >Home</a><br>
     <a href="/<%= @user %>/add_a_book" >Add a book from API!</a><br>
     <a href="/search" >Search database for books already added</a><br>
-    <a href="/<%= @user %>" >My Bookshelf</a><br><br>
+    <a href="/<%= @user %>" >My Bookshelf</a><br>
+    <a href="/:user_id/profile" >My Profile Page</a><br>
 
   <% end %>
 
-  <br><%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <br><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
