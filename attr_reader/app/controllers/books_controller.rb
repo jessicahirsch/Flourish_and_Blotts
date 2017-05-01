@@ -92,6 +92,19 @@ class BooksController < ApplicationController
     redirect_to "/books"
   end
 
+  def new
+    super
+  end
+
+  def create
+    super
+  end
+
+  def welcome_send
+    @current_user = User.find(current_user.id)
+    UserMailer.welcome_send(@current_user).deliver_now
+  end
+
 
   def search
     if user_signed_in?
