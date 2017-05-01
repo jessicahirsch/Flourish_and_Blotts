@@ -1,3 +1,109 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+  .loginbody{
+	background: url('http://www.publicdomainpictures.net/pictures/200000/velka/book-in-stone-window.jpg');
+	background-size: 100vw 100vh;
+	margin: 0;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.header{
+	margin: 0;
+	font-family: 'Nova Flat', cursive;
+	padding: 10px;
+	color: #e74c3c;
+	font-size: 4.1em;
+}
+
+.container{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+.trade{
+	flex:1;
+	color: white;
+	text-align: center;
+	margin-top: 15vh;
+	text-shadow: 2px 2px 4px #000000;
+	margin-right: 30px;
+}
+.setup{
+	flex:1;
+	margin-top: 20vh;
+	margin-right: 2vw;
+}
+.users{
+	display: flex;
+	flex-direction: column;
+}
+.username{
+	flex:3;
+	padding: 5px;
+}
+.password{
+	flex:3;
+	padding: 5px;
+}
+.logsign{
+	display: flex;
+	flex-direction: row;
+	margin-bottom: -20px;
+}
+.login{
+	color: #e74c3c;
+	background: white;
+	flex: 1;
+	font-weight: 500;
+	border-radius: 10px 0px 0px 0px;
+	padding: 10px;
+	padding-right: 0px;
+}
+.signup{
+	background: white;
+	color: #95a5a6;
+	flex: 1;
+	font-weight: 400;
+	border-radius: 0px 10px 0px 0px;
+	padding: 10px;
+	padding-left: 0px;
+}
+.submit{
+	background: #e74c3c;
+	border: #e74c3c;
+	padding: 10px;
+	border-radius: 0px 0px 10px 10px;
+	font-size: 1.1em;
+}
+.username,.password,.field{
+	background: white;
+}
+.submit{
+
+}
+.username,.password{
+	width: 50vw;
+}
+@media only screen and (max-width: 430px) {
+	.container{
+	flex-direction: column;
+	}
+	.logo{
+		text-align: center;
+	}
+	.setup,.trade{
+		margin-top: 0vh;
+	}
+	.header{
+		text-align: center;
+	}
+}
+
+
+.rotate-center {
+  -webkit-animation: rotate-center 0.6s ease-in-out both;
+  -moz-animation: rotate-center 0.6s ease-in-out both;
+  animation: rotate-center 0.6s ease-in-out both;
+}
+
