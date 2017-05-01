@@ -12,7 +12,7 @@
 
 <ul>
 <% @search_result.each do |book| %>
-  <li><%= book.title %>, <%= book.author %>, <%= book.genre %> owned by:  <%= book.user.email %> Request book: <a href="/books/request_trade?id=<%= book.id %>">Click</a></li>
+  <li><%= book.title %>, <%= book.author %>, <%= book.genre %> owned by:  <%= book.user.email %> Request book: <a href="/books/request_trade?id=<%= book.id %>">Request book</a> | <a href="/<%= book.user.id %>/book_list" >Check out their profile</a></li>
 <% end %>
 </ul>
 
