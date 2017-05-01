@@ -86,8 +86,9 @@ class BooksController < ApplicationController
   def request_trade
     #Making the book trade request, whatever that meanzs
     # Send a message to the user or whatever?
+    @current_user = User.find(current_user.id)
     book = Book.find(params[:id])
-    UserMailer.book_trade(book).deliver_now
+    UserMailer.book_trade(book, @current_user).deliver_now
     redirect_to "/books"
   end
 
