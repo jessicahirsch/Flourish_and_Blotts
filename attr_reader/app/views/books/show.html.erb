@@ -7,6 +7,9 @@
         <li><%= book[:title] %> - <%= book[:author] %><br>
           ISBN: <%= book[:isbn] %> </li>
           Request book: <a href="/books/request_trade?id=<%= book.id %>">Click</a>
+          <% if book.status == "Requested" %>
+
+
       <% end %>
     </ul>
 
