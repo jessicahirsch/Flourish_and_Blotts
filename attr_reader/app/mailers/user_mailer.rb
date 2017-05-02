@@ -16,9 +16,12 @@ class UserMailer < ApplicationMailer
     mail to: user.email, subject: "Welcome! Thanks for signing up for attr_reader!"
   end
 
-  # def shipment_confirmation(book = {}, user)
-  #   @greeting = "Greetings!"
-  #   @url = '#'
-  #   puts "email for shipment confirmation"
-  #   mail(to: user.email, subject: "More Knowledge is headed your way!")
+  def spam(book = {}, user)
+    @greeting = "Greetings!"
+    @url = '#'
+    @help = user
+    puts "email for shipment confirmation"
+    mail(to: user, subject: "More Knowledge is headed your way!")
+  end
+
 end

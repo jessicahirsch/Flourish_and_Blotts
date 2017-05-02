@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get "/party", to: "books#party"
   get "/search/request_trade", to: "search#request_trade"
   get "/users/sign_up", to: "devise#welcome_email"
-  get "/books/shipment_confirmation", to: "books#shipment_confirmation"
+  get "/:user_id/book_list/spam", to: "search#shipment_confirmation"
   get "/books/recieved", to: "books#recieved"
   get "/books/shelf_it", to: "books#ship_it"
 
