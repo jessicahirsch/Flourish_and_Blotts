@@ -149,8 +149,6 @@ input{
 		width: 90vw;
 	}
 }
-
-
 .Site {
   display: flex;
   min-height: 100vh;
@@ -163,6 +161,12 @@ input{
 
 .signup_text {
   font-family: 'Ubuntu', sans-serif;
+}
+
+
+.underscore{
+	position: relative;
+	top: -10px;
 }
 
 .forgot_password {
@@ -186,3 +190,4 @@ input{
 .index_header {
   font-size: 20px;
 }
+
