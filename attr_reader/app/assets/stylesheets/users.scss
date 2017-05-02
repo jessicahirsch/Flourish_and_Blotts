@@ -16,6 +16,7 @@ input{
 	padding: 10px;
 	color: #e74c3c;
 	font-size: 4.1em;
+  text-shadow: 5px 5px 10px rgb(124, 2, 0);
 }
 
 .container{
@@ -30,11 +31,13 @@ input{
 	margin-top: 15vh;
 	text-shadow: 2px 2px 4px #000000;
 	margin-right: 30px;
+  font-family: 'Ubuntu', sans-serif;
 }
 .setup{
 	flex:1;
-	margin-top: 20vh;
+	margin-top: 5vh;
 	margin-right: 2vw;
+  position: relative;
 }
 .users{
 	display: flex;
@@ -52,53 +55,64 @@ input{
 	display: flex;
 	flex-direction: row;
 	margin-bottom: -20px;
+  cursor: pointer;
+  font-family: 'Ubuntu', sans-serif;
 }
 .login{
-	color: #e74c3c;
-	background: white;
-	flex: 1;
-	font-weight: 500;
-	border-radius: 10px 0px 0px 0px;
-	padding: 10px;
-	padding-right: 0px;
+  background: white;
+  flex: 1;
+  font-weight: 500;
+  border-radius: 10px 0px 0px 0px;
+  padding: 10px;
+  padding-left: 130px;
+  padding-right: 0px;
 }
-.signup{
+
+.signup {
 	background: white;
-	color: #95a5a6;
 	flex: 1;
 	font-weight: 400;
 	border-radius: 0px 10px 0px 0px;
 	padding: 10px;
-	padding-left: 0px;
+	padding-left: 100px;
+  padding-right: 0px;
+  cursor: pointer;
 }
 .pagesignup{
-	color: #e74c3c;
 	border-radius: 10px 0px 0px 0px;
 	order: 1;
 }
 .pagelogin{
-	color: #95a5a6;
 	border-radius: 0px 10px 0px 0px;
 	order: 2;
 }
+
+.pagelogin:hover {
+  color: rgb(255, 185, 0);
+}
+
+.pagesignup:hover {
+  color: rgb(255, 185, 0);
+}
+
 .submit{
 	background: #e74c3c;
 	border: #e74c3c;
-	padding: 10px;
+  padding: 10px;
 	border-radius: 0px 0px 10px 10px;
 	font-size: 1.1em;
+  cursor: pointer;
 }
 
-
-
-
+.field {
+  padding-left: 10px;
+  padding-right: 10px;
+}
 
 .username,.password,.field{
 	background: white;
 }
-.submit{
 
-}
 .username,.password{
 	width: 50vw;
 }
@@ -119,4 +133,11 @@ input{
 		margin-left: 3vw;
 		width: 90vw;
 	}
+}
+
+.signup_text {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.remember_box {
 }
