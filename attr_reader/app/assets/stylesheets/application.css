@@ -39,8 +39,10 @@ body{
   top: 100px;
 }
 
-.alert{
+.alert,.notice{
    display: inline;
+   text-align: center;
+   margin-left:20vw;
  }
  body{
    margin: 0px;

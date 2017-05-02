@@ -83,7 +83,7 @@ class BooksController < ApplicationController
       status: "Shelfed")
     redirect_to("/#{current_user.id}")
     else
-    flash[:notice] = "Please add your address in before adding a book to your shelf"
+    flash[:notice] = "Please add your address in your my profile settings before adding a book to your shelf"
        redirect_to("/#{current_user.id}/add_a_book")
     end
   end
