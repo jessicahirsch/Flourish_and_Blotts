@@ -14,6 +14,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
     params.require(:user).permit( :username, :email, :password, :password_confirmation)
   end
 
+  def edit
+    render :edit
+    @user = User.find(params[:id])
+    render "/devise/registrations/edit"
+  end
+
+  def update
+    # render "/devise/registrations/edit"
+
+  end
+
 end
 
   # edit user registration

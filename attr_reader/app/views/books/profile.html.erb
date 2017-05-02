@@ -16,7 +16,7 @@
   <%= @user.zip_code %><br>
   <br><strong>Phone:</strong> <%= @user.phone %><br>
 
-<br><a href="/users/edit" >Edit your info dude</a><br>
+<br><%= link_to 'Edit your info dude', "/#{current_user.id}/edit" %><br>
 
 <br><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
 

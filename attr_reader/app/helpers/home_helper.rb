@@ -1,7 +1,7 @@
 module HomeHelper
 
 def resource_name
-  :user
+  current_user
 end
 
 def resource
@@ -9,7 +9,7 @@ def resource
 end
 
 def devise_mapping
-  @devise_mapping ||= Devise.mappings[:user]
+  @devise_mapping ||= Devise.mappings[current_user]
 end
 
 end

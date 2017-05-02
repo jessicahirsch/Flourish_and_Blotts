@@ -6,17 +6,29 @@ class UsersController < ApplicationController
 #    @books = @search.result
 #  end
 
+  # DELETE /resource
+  def destroy
+    sign_out current_user
+    redirect_to ("/login")
+  end
 
 
-
-def show
-
+  def show
     render "/devise/registrations/new"
-end
+  end
 
 # def created
 
 # end
+
+  def edit
+    render :edit
+    render "/devise/registrations/edit"
+  end
+
+  def update
+    render "/devise/registrations/edit"
+  end
 
   def create
     user = User.create(username: params['user']['username'],
@@ -24,7 +36,7 @@ end
       password: params['user']['password']
     )
     # byebug
-    redirect_to ("/login")
+    redirect_to edit_user_registration_path
 
   end
 

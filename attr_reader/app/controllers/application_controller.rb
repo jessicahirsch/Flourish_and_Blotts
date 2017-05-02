@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     #will need to add fields to be updated
+    added_attrs = [:username]
     update_fields = [:password, :password_confirmation, :current_password, :username, :firstname, :lastname, :genre, :state, :city, :street, :building_num, :zip_code, :apt_num, :phone]
     devise_parameter_sanitizer.permit :account_update, keys: update_fields
   end
