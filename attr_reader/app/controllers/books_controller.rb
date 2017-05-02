@@ -34,7 +34,7 @@ class BooksController < ApplicationController
     else
       redirect_to "/users/sign_in"
     end
-  end
+  end 
 
   def new
     if user_signed_in?
@@ -73,6 +73,7 @@ class BooksController < ApplicationController
   end
 
   def create
+    if(current_user.street == true && current_user.city == true)
     Book.create(title: params[:title],
       author: params[:authors],
       isbn: params[:isbn],
@@ -81,6 +82,10 @@ class BooksController < ApplicationController
       user_id: current_user.id,
       status: "Shelfed")
     redirect_to("/#{current_user.id}")
+    else
+    flash[:notice] = "Please add your address in before adding a book to your shelf"
+       redirect_to("/#{current_user.id}/add_a_book")
+    end
   end
 
   def destroy

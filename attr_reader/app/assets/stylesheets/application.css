@@ -13,8 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
 body{
   background: #fafafa;
+}
+.notice{
+  background: red;
 }
 .mybooks{
     margin-left: 30vw;
@@ -35,7 +39,7 @@ body{
   top: 100px;
 }
 
-.alert,.notice{
+.alert{
    display: inline;
  }
  body{
