@@ -1,46 +1,50 @@
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+</head>
 <body class="loginbody">
    <h1 class="header">Attr_Reader</h1>
    <div class="container">
 
     <div class="trade">
       <h1>A Modern Way to Trade Books</h1>
-      <p>Find the novel or textbook you need, and request a trade directly from the owner! Explore our massive selection of books and read on</p>
+      <p>Find the novel or textbook you need and request a trade<br>directly from the owner!<br>Explore our massive selection of books and read on!</p>
     </div>
+
     <div class="setup">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
       <div class="logsign">
         <h2 class="login pagelogin">Login</h2>
-        <h2 class="signup pagesignup" style="color:#e74c3c">Sign Up</h2>
+        <h2 class="signup pagesignup">Sign Up</h2>
       </div>
 
 
       <div class="field">
-        <%= f.label :username %><br />
+        <div class="signup_text"><%= f.label :username %><br /></div>
         <%= f.text_field :username, autofocus: true %>
       </div>
 
     <div class="field">
-      <%= f.label :email %><br />
+      <div class="signup_text"><%= f.label :email %><br /></div>
       <%= f.email_field :email %>
     </div>
 
     <div class="field">
-      <%= f.label :password %>
+      <div class="signup_text"><%= f.label :password %></div>
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %><br />
       <%= f.password_field :password, autocomplete: "off" %>
     </div>
       <div class="field">
-      <%= f.label :password_confirmation %><br />
+      <div class="signup_text"><%= f.label :password_confirmation %><br /></div>
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
 
     <div class="actions submit">
-      <%= f.submit "Sign up" , class: 'submit'%>
+      <div class="signup_text"><%= f.submit "Sign up" , class: 'submit'%></div>
     </div>
-    <%= render "devise/shared/links" %>
+
   <% end %>
     </div>
 <script>
@@ -49,8 +53,8 @@
    })
 </script>
 
+</div>
 </body>
 .
-</div>
 
 
