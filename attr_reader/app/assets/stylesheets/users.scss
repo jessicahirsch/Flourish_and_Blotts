@@ -131,24 +131,6 @@ input{
 .username,.password{
 	width: 50vw;
 }
-@media only screen and (max-width: 430px) {
-	.container{
-	flex-direction: column;
-	}
-	.logo{
-		text-align: center;
-	}
-	.setup,.trade{
-		margin-top: 0vh;
-	}
-	.header{
-		text-align: center;
-	}
-	input,.username,.password{
-		margin-left: 3vw;
-		width: 90vw;
-	}
-}
 
 .signup_text {
   font-family: 'Ubuntu', sans-serif;
@@ -181,4 +163,33 @@ input{
 .index_header {
   font-size: 20px;
 }
+.edit_user,.cancel_user{
+	margin-left: 30vw;
+}
+.editname{
+	text-align: center;
+}
+
+@media only screen and (max-width: 430px) {
+	.container{
+	flex-direction: column;
+	}
+	.logo{
+		text-align: center;
+	}
+	.setup,.trade{
+		margin-top: 0vh;
+	}
+	.header{
+		text-align: center;
+	}
+	input,.username,.password{
+		margin-left: 3vw;
+		width: 90vw;
+	}
+	.edit_user,.cancel_user{
+	margin-left: 5vw;
+}
+}
+
 
