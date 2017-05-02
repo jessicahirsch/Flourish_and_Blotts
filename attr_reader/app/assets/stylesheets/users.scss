@@ -88,11 +88,6 @@ input{
 	border-radius: 0px 0px 10px 10px;
 	font-size: 1.1em;
 }
-
-
-
-
-
 .username,.password,.field{
 	background: white;
 }
@@ -115,7 +110,7 @@ input{
 	.header{
 		text-align: center;
 	}
-	input{
+	input,.username,.password{
 		margin-left: 3vw;
 		width: 90vw;
 	}
