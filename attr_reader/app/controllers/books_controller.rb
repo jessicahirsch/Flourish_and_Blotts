@@ -100,9 +100,9 @@ class BooksController < ApplicationController
     redirect_to "/books"
   end
 
-  def create
-    super
-  end
+  # def create
+  #   super
+  # end
 
   def welcome_send
     @current_user = User.find(current_user.id)
