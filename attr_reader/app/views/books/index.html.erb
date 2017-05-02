@@ -1,10 +1,10 @@
 <% if user_signed_in? %>
 <%= render "layouts/header" %>
-  <br><br><br><br><br><br>
+  
   <h1 class="bookshelftitle">My Bookshelf</h1>
   <div id="bookshelf">
     <% @books.each_with_index do |book, i| %>
-      <div class="books_image" style=<%= "background-image:url('/assets/book#{rand(25..46)}');left:#{i * 52}px" %>><span class="title_text"> <%= book[:title] %></span></div>
+      <div class="books_image" style=<%= "background-image:url('/assets/book#{rand(25..46)}');left:#{i * 3.3}vw" %>><span class="title_text"> <%= book[:title] %></span></div>
     <% end %>   
   </div>
 
