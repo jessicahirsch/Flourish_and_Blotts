@@ -104,6 +104,7 @@ input{
   cursor: pointer;
 }
 
+
 .field {
   padding-left: 10px;
   padding-right: 10px;
@@ -129,7 +130,7 @@ input{
 	.header{
 		text-align: center;
 	}
-	input{
+	input,.username,.password{
 		margin-left: 3vw;
 		width: 90vw;
 	}
