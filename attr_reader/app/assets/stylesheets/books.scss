@@ -1,3 +1,37 @@
 // Place all the styles related to the books controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.searchbar{
+	text-align: center;
+	font-family: 'Nova Flat', cursive;
+}
+.partyform{
+	margin-left: 20vw;
+}
+.findsubmit{
+	max-width: 175px;
+	font-size: 1.1em;
+	background: #3498db;
+	border: #3498db;
+	color: white;
+	border-radius: 10px;
+	padding: 10px 0px 10px 0px;
+}
+.findbooks{
+	margin: 0px 5vw 0px 5vw;
+	text-align: justify;
+}
+.addbook{
+	margin-left: 30vw;
+}
+.findtitle,.profilebody{
+	text-align: center;
+}
+
+@media screen and (max-width: 430px){
+	.partyform,.addbook{
+		margin-left: 0vw;
+	}.findsubmit{
+		margin-left: 4vw;
+	}
+}
