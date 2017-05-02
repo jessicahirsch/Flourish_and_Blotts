@@ -1,3 +1,6 @@
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+</head>
 <% if user_signed_in? %>
 <%= render 'layouts/header' %>
 	<br><br>
@@ -6,7 +9,7 @@
   <br>
   <%= f.search_field :title_or_author_or_isbn_or_genre_cont %>
     <br>
-  <%= f.submit "Search" , class: "findsubmit" %>
+  <div class="signup_text"><%= f.submit "Search" , class: "findsubmit" %></div>
 <% end %>
 
 <ul class="searchul">
@@ -14,9 +17,9 @@
 <% @search_result.each do |book| %>
 
   <% if book[:status] == "Shelfed" %>
-  <li><%= book.title %>, <%= book.author %>, <%= book.genre %> owned by:  <%= book.user.email %> Request book:
-   <a href="/search/request_trade?id=<%= book.id%>">Request book</a>
-    | <a href="/<%= book.user.id %>/book_list" >Check out their shelf!</a></li>
+  <li><%= book.title %>, <%= book.author %>, <%= book.genre %><br>Owned By:  <%= book.user.email %>
+   <br><a href="/search/request_trade?id=<%= book.id%>">Request book</a>
+    | <a href="/<%= book.user.id %>/book_list" >Check out their shelf!</a></li><br>
   <% end %>
   <% end %>
 
