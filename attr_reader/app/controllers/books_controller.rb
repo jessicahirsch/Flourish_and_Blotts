@@ -108,16 +108,6 @@ class BooksController < ApplicationController
     redirect_to "/current_user.id/book_list"
   end
 
-  def shipment_confirmation
-    @user = User.find(current_user.id)
-    book = Book.find(params[:id])
-    @new_user = Relation.sort_by(&:book_id).last.requester
-    # @recipient = @new_user.email
-    UserMailer.shipment_confirmation(book, @user).deliver_now
-    book.update_attributes(:status => "En Route", :user_id => @new_user)
-    redirect_to "/current_user.id/book_list"
-  end
-
   def welcome_send
     @current_user = User.find(current_user.id)
     UserMailer.welcome_send(@current_user).deliver_now
