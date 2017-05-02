@@ -1,5 +1,6 @@
-
 <% if user_signed_in? %>
+
+  <h1>Show (index) Page for my Books</h1>
 
   <h1>signed in</h1>
   <div id="bookshelf">
@@ -7,11 +8,13 @@
       <div id=<%= "book#{i}" %> style=<%= "background-image:url();left:#{i * 50}px" %>> <%= book[:title] %></div>
     <% end %>   
   </div>
+
   <ul>
     <% @books.each do |book| %>
       <li><%= book[:title] %> - <%= book[:author] %><br>
         ISBN: <%= book[:isbn] %><br>
         Genre: <%= book[:genre] %></li>
+        <button>Book Has Been Shipped</button>
     <% end %>
   </ul>
     <%= @books %>

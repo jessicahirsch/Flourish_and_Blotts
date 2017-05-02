@@ -2,11 +2,29 @@ class Users::RegistrationsController < Devise::RegistrationsController
 #   before_action :configure_sign_up_params, only: [:create]
 #   before_action :configure_account_update_params, only: [:update]
 
+  def show
+    @users = User.new
+    render "devise/registrations/new"
+
+  end
+
+
+
+  def sign_up_params
+    params.require(:user).permit( :username, :email, :password, :password_confirmation)
+  end
+
+end
+
   # edit user registration
   # and the put action to update the information
   # go into views and add the fields
   # sanitize the inputs and insert them into the database
 
+  # def welcome_email
+  #   super
+  #   UserMailer.welcome_send(user).deliver_now unless user.invalid?
+  # end
 
   # GET /resource/sign_up
   # def new

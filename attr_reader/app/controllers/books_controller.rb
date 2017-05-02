@@ -78,7 +78,8 @@ class BooksController < ApplicationController
       isbn: params[:isbn],
       description: params[:description],
       genre: params[:genre],
-      user_id: current_user.id)
+      user_id: current_user.id,
+      status: "Shelfed")
     redirect_to("/#{current_user.id}")
   end
 
@@ -91,10 +92,25 @@ class BooksController < ApplicationController
   def request_trade
     #Making the book trade request, whatever that meanzs
     # Send a message to the user or whatever?
+
     @current_user = User.find(current_user.id)
     book = Book.find(params[:id])
     UserMailer.book_trade(book, @current_user).deliver_now
+    book.update_attribute(:status, "Requested")
     redirect_to "/books"
+  end
+
+  def new
+    super
+  end
+
+  def create
+    super
+  end
+
+  def welcome_send
+    @current_user = User.find(current_user.id)
+    UserMailer.welcome_send(@current_user).deliver_now
   end
 
 
