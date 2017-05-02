@@ -24,7 +24,7 @@ input{
 	flex-direction: row;
 	flex-wrap: wrap;
 }
-.trade{
+.trade {
 	flex:1;
 	color: white;
 	text-align: center;
@@ -153,4 +153,18 @@ input{
 
 .remember_box {
 
+}
+
+.welcome_message {
+  flex:1;
+  color: white;
+  text-align: center;
+  margin-top: 15vh;
+  text-shadow: 2px 2px 4px #000000;
+  margin-right: 30px;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.index_header {
+  font-size: 20px;
 }
