@@ -2,10 +2,11 @@
 <%= render "layouts/header" %>
   
   <h1 class="bookshelftitle">My Bookshelf</h1>
-  <div id="bookshelf">
+  <div id="bookshelf"><a href="/<%= @user %>/book_list" >
     <% @books.each_with_index do |book, i| %>
       <div class="books_image" style=<%= "background-image:url('/assets/book#{rand(25..46)}');left:#{i * 3.3}vw" %>><span class="title_text"> <%= book[:title] %></span></div>
-    <% end %>   
+    <% end %>
+    </a>
   </div>
 
   
