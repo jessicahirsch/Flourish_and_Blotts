@@ -4,6 +4,7 @@
 .searchbar{
 	text-align: center;
 	font-family: 'Nova Flat', cursive;
+  margin-top: 100px;
 }
 .partyform{
 	margin-left: 20vw;
@@ -37,4 +38,9 @@
 	}.findsubmit{
 		margin-left: 4vw;
 	}
+	input{
+		margin-left: 3vw;
+		width: 90vw;
+	}
 }
+
