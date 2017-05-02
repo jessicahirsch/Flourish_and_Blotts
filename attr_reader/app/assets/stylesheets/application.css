@@ -69,6 +69,12 @@ body{
  }
  .dropdown-content a{
    color: black;
+   background: #eee;
+ }
+ .dropdown-content{
+  margin-top: 15px;
+  padding-left: 10px;
+   background: #eee;
  }
  .dropdown:hover .dropdown-content {
      display: inline-block;
