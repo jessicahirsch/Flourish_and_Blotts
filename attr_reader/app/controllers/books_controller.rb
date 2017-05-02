@@ -12,7 +12,7 @@ class BooksController < ApplicationController
     elsif request.path == "/sign_up" || request.path == "/signup"
       redirect_to "/users/sign_up"
     else
-      redirect_to "/login"
+      redirect_to "/users/sign_in"
     end
   end
 
@@ -32,7 +32,7 @@ class BooksController < ApplicationController
     elsif request.path == "/sign_up" || request.path == "/signup"
       redirect_to "/users/sign_up"
     else
-      redirect_to "/login"
+      redirect_to "/users/sign_in"
     end
   end
 
@@ -43,7 +43,7 @@ class BooksController < ApplicationController
     elsif request.path == "/sign_up" || request.path == "/signup"
       redirect_to "/users/sign_up"
     else
-      redirect_to "/login"
+      redirect_to "/users/sign_in"
     end
   end
 
@@ -53,7 +53,7 @@ class BooksController < ApplicationController
     elsif request.path == "/sign_up" || request.path == "/signup"
       redirect_to "/users/sign_up"
     else
-      redirect_to "/login"
+      redirect_to "/users/sign_in"
     end
   end
 
@@ -68,7 +68,7 @@ class BooksController < ApplicationController
     elsif request.path == "/sign_up" || request.path == "/signup"
       redirect_to "/users/sign_up"
     else
-      redirect_to "/login"
+      redirect_to "/users/sign_in"
     end
   end
 
@@ -107,7 +107,7 @@ class BooksController < ApplicationController
     elsif request.path == "/sign_up" || request.path == "/signup"
       redirect_to "/users/sign_up"
     else
-      redirect_to "/login"
+      redirect_to "/users/sign_in"
     end
   end
 
