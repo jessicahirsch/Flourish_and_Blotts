@@ -29,7 +29,7 @@ body{
   margin-left: 15%;
   margin-right: 15%;
   display: block;
-  border: 1px solid black;
+/*  border: 1px solid black;*/
   background-image: url(/assets/emptyshelf.png);
   background-repeat: no-repeat;
   background-position: bottom;
