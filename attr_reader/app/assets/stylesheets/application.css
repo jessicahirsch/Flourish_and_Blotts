@@ -25,18 +25,44 @@ body{
 }
 #bookshelf {
   position: relative;
-  height: 200px;
+  height: 600px;
+  margin-left: 15%;
+  margin-right: 15%;
+  display: block;
+  border: 1px solid black;
+  background-image: url(/assets/emptyshelf.png);
+  background-repeat: no-repeat;
+  background-position: bottom;
 }
 
-#bookshelf > div {
+.books_image {
   position: absolute;
-  width: 200px;
-  height: 20px;
+  top: 150px;
+  width: 322px;
+  height: 56px;
   display: block;
-  background-size: auto;
   transform: rotate(270deg);
   text-align: center;
-  top: 100px;
+  background-repeat: no-repeat;
+}
+.title_text {
+  line-height: 16px;
+  position: absolute;
+  font-family: sans-serif;
+  font-size: 110%;
+  color: white;
+  text-align: center;
+  top: 10px;
+  right: 68px;
+  width: 190px;
+  height: 38px;
+  text-shadow: 1px 1px 1px gray
+}
+.bookshelftitle {
+  font-size: 50px;
+  font-family: 'Nova Flat', cursive;
+  color: rgba(231, 76, 60, 1);
+  text-align: center;
 }
 
 .alert,.notice{
