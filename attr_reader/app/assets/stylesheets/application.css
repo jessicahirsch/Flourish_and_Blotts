@@ -28,3 +28,56 @@
   text-align: center;
   top: 100px;
 }
+
+.alert,.notice{
+   display: inline;
+ }
+ body{
+   margin: 0px;
+ }
+ .logo{
+   font-family: 'Nova Flat', cursive;
+ }
+ .navbar{
+   display: flex;
+   background: #e74c3c;
+   height: 60px;
+   font-family: 'Nova Flat', cursive;
+ }
+ .navitem{
+   flex: 1;
+   position: relative;
+   top: 2vh;
+   font-size: 1.7em;
+   margin-left:5vw; 
+ }
+ .navitem a{
+   text-decoration: none;
+   color: white;
+ }
+ .dropdown-content {
+     display: none;
+     z-index: 1;
+     color: black;
+     font-size: 0.7em;
+ }
+ .dropdown-content a{
+   color: black;
+ }
+ .dropdown:hover .dropdown-content {
+     display: inline-block;
+ }
+ @media only screen and (max-width: 800px) {
+   .navbar{
+     height: 40px;
+   }
+   .navitem{
+     font-size: 1.5em;
+     top: 1.5vh;
+   }
+ }
+ @media only screen and (max-width: 500px) {
+   .navitem{
+     font-size: 1.2em;
+     margin-left:3vw; 
+   }
