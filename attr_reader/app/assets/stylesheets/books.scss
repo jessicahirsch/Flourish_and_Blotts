@@ -27,7 +27,10 @@
 .findtitle,.profilebody{
 	text-align: center;
 }
-
+.indexbooklist{
+	text-align:center;
+	list-style-type: none;
+}
 @media screen and (max-width: 430px){
 	.partyform,.addbook{
 		margin-left: 0vw;
