@@ -10,23 +10,42 @@
 
 <ul class="findtitle">
   <% if @user == @userid %>
-  <% @books.each do |book| %>
-  <hr/>
-  <li><strong><%= book[:title] %></strong><br>
-    <%= book[:author] %><br>
-    ISBN: <%= book[:isbn] %><br>
-    <%= link_to "Remove Book", book, method: :delete %> </li>
-  <% end %>
-  <% else %>
-  <% @books.each do |book| %>
-  <hr/>
-    <li><strong><%= book[:title] %></strong><br>
-      <%= book[:author] %><br>
-      ISBN: <%= book[:isbn] %><br>
-      <a href="/search/request_trade?id=<%= book.id %>">Request Book</a>
-    <% end %>
+
+    <% @books.each do |book| %>
+      <% if book[:status] == "Shelfed" %>
+        <li><%= book[:title] %> - <%= book[:author] %><br>
+          ISBN: <%= book[:isbn] %><br>
+          Status: <%= book[:status] %><br>
+          Remove book: <%= link_to "Remove Book", book, method: :delete %> </li>
+      <% elsif book[:status] == "In Use" %>
+        <li><%= book[:title] %> - <%= book[:author] %><br>
+          ISBN: <%= book[:isbn] %><br>
+          Status: <%= book[:status] %><br>
+          Add book to shelf: <a href="/books/shelf_it?id=<%= book.id %>">To the Shelf!</a>
+          Remove book: <%= link_to "Remove Book", book, method: :delete %> </li>
+      <% elsif book[:status] == "Requested" %>
+        <li><%= book[:title] %> - <%= book[:author] %><br>
+          ISBN: <%= book[:isbn] %><br>
+          Status: <%= book[:status] %><br>
+          Confirm Shipment: <a href="/books/shipment_confirmation?id=<%= book.id %>">I sent the book!</a>
+      <% elsif book[:status] == "En Route" %>
+        <li><%= book[:title] %> - <%= book[:author] %><br>
+          ISBN: <%= book[:isbn] %><br>
+          Status: <%= book[:status] %><br>
+          Confirm book as recieved: <a href="/books/recieved?id=<%= book.id %>">Confirmed!</a>
+      <% end %>
+      <% end %>
+    <% else %>
+      <% @books.each do |book| %>
+        <% if book[:status] == "Shelfed" %>
+          <li><%= book[:title] %> - <%= book[:author] %><br>
+            ISBN: <%= book[:isbn] %><br>
+            Request book: <a href="/search/request_trade?id=<%= book.id %>">Request it!</a>
+        <% end %>
+      <% end %>
   <% end %>
 </ul>
+
 <% end %>
 
 <br><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>

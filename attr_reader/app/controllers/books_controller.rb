@@ -94,15 +94,37 @@ class BooksController < ApplicationController
     redirect_to("/#{current_user.id}")
   end
 
+  def shelf_it
+    @user = User.find(current_user.id)
+    book = Book.find(params[:id])
+    book.update_attribute(:status, "Shelfed")
+    redirect_to "/current_user.id/book_list"
+  end
+
+  def recieved
+    @user = User.find(current_user.id)
+    book = Book.find(params[:id])
+    book.update_attribute(:status, "In Use")
+    redirect_to "/current_user.id/book_list"
+  end
+
+  def shipment_confirmation
+    @user = User.find(current_user.id)
+    book = Book.find(params[:id])
+    @new_user = Relation.sort_by(&:book_id).last.requester
+    # @recipient = @new_user.email
+    UserMailer.shipment_confirmation(book, @user).deliver_now
+    book.update_attributes(:status => "En Route", :user_id => @new_user)
+    redirect_to "/current_user.id/book_list"
+  end
+
   def welcome_send
     @current_user = User.find(current_user.id)
     UserMailer.welcome_send(@current_user).deliver_now
   end
 
-
   def search
     if user_signed_in?
-    # using ransack
     @search = Book.search(params[:q])
     @search_result = @search.result.includes(:user).where.not(user_id: current_user.id)
     render "search"
@@ -115,34 +137,23 @@ class BooksController < ApplicationController
 
   def book_details(body)
     (body["items"]).map do |book|
-      pp body
-      if (book["volumeInfo"]["industryIdentifiers"] == true && book["volumeInfo"]["categories"][0] == true)
+
         title = book["volumeInfo"]["title"]
-        isbn = book["volumeInfo"]["industryIdentifiers"][0]["identifier"]
-        genre = book["volumeInfo"]["categories"][0]
+        isbn = book["volumeInfo"]["industryIdentifiers"]
         description = book["volumeInfo"]["description"]
         authors = book["volumeInfo"]["authors"]
+        genre = book["volumeInfo"]["categories"]
         {
           title: title ? title : "",
-          isbn: isbn ? isbn : "",
+          isbn: isbn ? isbn[0]["identifier"] : "",
           description: description ? description : "",
           authors: authors ? authors.join(", ") : "",
-          genre: genre ? genre : ""
+          genre: genre ? genre[0]: ""
           }
-      else
-        title = book["volumeInfo"]["title"]
-        description = book["volumeInfo"]["description"]
-        authors = book["volumeInfo"]["authors"]
-        {
-          title: title ? title : "",
-          isbn: "",
-          description: description ? description : "",
-          authors: authors ? authors.join(", ") : "",
-          genre: ""
-          }
+
       end
-    end
   end
+
 
 
 end
