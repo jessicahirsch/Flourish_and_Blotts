@@ -19,12 +19,13 @@ body{
 }
 
 footer {
-  background: #000;
+  background: rgb(99, 0, 72);
   color: #fff;
   padding: 30px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  opacity: 0.5;
 }
 
 footer ul {
@@ -42,10 +43,15 @@ footer h3 {
 
 footer div.footer_links {
   float: left;
+  text-align: left;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 footer div.copy_info {
+  margin-left: 700px;
   float: right;
+  text-align: right;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 .group:after {
