@@ -100,10 +100,6 @@ class BooksController < ApplicationController
     redirect_to "/books"
   end
 
-  def new
-    super
-  end
-
   def create
     super
   end
