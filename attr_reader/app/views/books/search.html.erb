@@ -13,10 +13,12 @@
 
 <ul>
 <% @search_result.each do |book| %>
+  <% if book[:status] == "Shelfed" %>
   <li><%= book.title %>, <%= book.author %>, <%= book.genre %> owned by:  <%= book.user.email %> Request book:
-   <a href="mailto:<%=book.user.email%>">Request book</a>
-    | <a href="/<%= book.user.id %>/book_list" >Check out their profile</a></li>
-<% end %>
+   <a href="/search/request_trade?id=<%= book.id%>">Request book</a>
+    | <a href="/<%= book.user.id %>/book_list" >Check out their shelf!</a></li>
+  <% end %>
+  <% end %>
 </ul>
 
 <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>

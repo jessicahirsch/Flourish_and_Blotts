@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  og: MyString
+  requester: MyString
+  book_id: MyString
+  book_places: MyString
+
+two:
+  og: MyString
+  requester: MyString
+  book_id: MyString
+  book_places: MyString
