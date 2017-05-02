@@ -69,13 +69,12 @@ footer div.copy_info {
     margin-left: 30vw;
 }
 #bookshelf {
-  margin-top: 10vw;
+  margin-top: 8vw;
   position: relative;
   height: 38em;
   margin-left: 15%;
   margin-right: 15%;
   display: block;
-/*  border: 1px solid black;*/
   background-image: url(/assets/emptyshelf.png);
   background-repeat: no-repeat;
   background-position: bottom;
@@ -103,14 +102,16 @@ footer div.copy_info {
   top: .6vw;
   right: 14.5vw;
   width: 11vw;
-  height: 4vw;
-  text-shadow: 1px 1px 1px gray
+  height: 2.2vw;
+  text-shadow: 1px 1px 1px gray;
+  overflow: hidden;
 }
 .bookshelftitle {
   font-size: 50px;
   font-family: 'Nova Flat', cursive;
   color: rgba(231, 76, 60, 1);
   text-align: center;
+  text-shadow: 2px 2px 3px darkred;
 }
 
 .alert,.notice{
