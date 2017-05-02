@@ -1,5 +1,14 @@
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+</head>
 <% if user_signed_in? %>
 <body class="loginbody">
 <%= render 'layouts/header' %>
+
+  <div class="welcome_message">
+  <div class="index_header"><h1>Welcome to Attr_Reader</h1></div>
+  <h3>Go Explore!</h3>
+  </div>
+</body>
 
 <% end %>

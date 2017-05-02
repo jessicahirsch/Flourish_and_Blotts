@@ -2,7 +2,7 @@
 <%= render 'layouts/header' %>
 <a href="/" >Home</a>
 <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
-<h1 class="searchbar">Add a book</h1>
+<br><br><br><h1 class="searchbar">Add a book</h1>
 <h2><%=@msg%></h2>
 
 <%= form_tag "/party", class: "partyform", method: "get", url: ("/party") do %>
