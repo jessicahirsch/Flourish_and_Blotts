@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
 <%= render "layouts/header" %>
-  <br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br>
   <h1 class="bookshelftitle">My Bookshelf</h1>
   <div id="bookshelf">
     <% @books.each_with_index do |book, i| %>
@@ -8,12 +8,5 @@
     <% end %>   
   </div>
 
-  <ul class="indexbooklist">
-    <% @books.each do |book| %>
-      <li><%= book[:title] %>  <%= book[:author] %><br>
-        ISBN: <%= book[:isbn] %><br>
-        Genre: <%= book[:genre] %></li>
-        <button>Book Has Been Shipped</button>
-    <% end %>
-  </ul>
+  
   <% end %>
