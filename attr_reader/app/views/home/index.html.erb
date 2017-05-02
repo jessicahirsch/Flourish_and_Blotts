@@ -1,12 +1,14 @@
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+</head>
 <% if user_signed_in? %>
 <body class="loginbody">
 <%= render 'layouts/header' %>
-  <h1>welcome to attr_reader</h1>
 
-  <a href="/search" >Search database for books already added</a><br>
-    <a href="/<%= @user %>/book_list" >Detailed Book List</a><br>
-    <a href="/<%= @user %>" >My Bookshelf</a><br>
-    <a href="/<%= @user %>/profile" >My Profile Page</a>
-    <br><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+  <div class="welcome_message">
+  <div class="index_header"><h1>Welcome to Attr_Reader</h1></div>
+  <h3>Go Explore!</h3>
+  </div>
 </body>
+
 <% end %>

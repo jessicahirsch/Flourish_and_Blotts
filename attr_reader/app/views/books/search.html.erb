@@ -1,26 +1,27 @@
 <% if user_signed_in? %>
 <%= render 'layouts/header' %>
-<h1>signed in</h1><br>
-
-<%= render 'header' %>
-
-<a href="/" >Home</a>
-<%= search_form_for @search, url: ('/search')  do |f| %>
+	<br><br>
+<%= search_form_for @search, class: "partyform", url: ('/search')  do |f| %>
   <%= f.label "Search by Title, Author, Genre or ISBN" %>
+  <br>
   <%= f.search_field :title_or_author_or_isbn_or_genre_cont %>
-  <%= f.submit "Search" %>
+    <br>
+  <%= f.submit "Search" , class: "findsubmit" %>
 <% end %>
 
-<ul>
+<ul class="searchul">
+
 <% @search_result.each do |book| %>
+
   <% if book[:status] == "Shelfed" %>
   <li><%= book.title %>, <%= book.author %>, <%= book.genre %> owned by:  <%= book.user.email %> Request book:
    <a href="/search/request_trade?id=<%= book.id%>">Request book</a>
     | <a href="/<%= book.user.id %>/book_list" >Check out their shelf!</a></li>
   <% end %>
   <% end %>
-</ul>
 
-<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+
+
+
 
 <% end %>

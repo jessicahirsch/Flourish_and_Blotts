@@ -4,6 +4,7 @@
 .searchbar{
 	text-align: center;
 	font-family: 'Nova Flat', cursive;
+  margin-top: 100px;
 }
 .partyform{
 	margin-left: 20vw;
@@ -26,10 +27,20 @@
 }
 .findtitle,.profilebody{
 	text-align: center;
+    list-style: none;
 }
 .indexbooklist{
 	text-align:center;
 	list-style-type: none;
+}
+.searchul{
+	list-style-type:none;
+	margin-right: 5vw;
+	line-height: 20px;
+}
+.searchbutton{
+	background: #e74c3c;
+	border: #e74c3c;
 }
 @media screen and (max-width: 430px){
 	.partyform,.addbook{
@@ -37,4 +48,12 @@
 	}.findsubmit{
 		margin-left: 4vw;
 	}
+	input{
+		margin-left: 3vw;
+		width: 90vw;
+	}
+	.searchul{
+		max-width: 70vw;
+	}
 }
+

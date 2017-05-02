@@ -73,6 +73,8 @@ class BooksController < ApplicationController
   end
 
   def create
+    if(current_user.street != "" && current_user.city != "")
+      puts "#{current_user.street} #{current_user.city} foobar foobar"
     Book.create(title: params[:title],
       author: params[:authors],
       isbn: params[:isbn],
@@ -81,6 +83,10 @@ class BooksController < ApplicationController
       user_id: current_user.id,
       status: "Shelfed")
     redirect_to("/#{current_user.id}")
+    else
+    flash[:notice] = "#{current_user.street} #{current_user.city}Please add your address in your my profile settings before adding a book to your shelf"
+       redirect_to("/#{current_user.id}/add_a_book")
+    end
   end
 
   def destroy
