@@ -46,7 +46,7 @@ body{
  }
  .navbar{
    display: flex;
-   background: #e74c3c;
+   background: rgba(231, 76, 60, .5);
    height: 60px;
    font-family: 'Nova Flat', cursive;
  }
