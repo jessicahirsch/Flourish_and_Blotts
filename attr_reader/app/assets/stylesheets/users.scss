@@ -2,10 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-html {
-    position: relative;
-    min-height: 100%;
-}
+// html {
+//     position: relative;
+//     min-height: 100%;
+// }
 
 .mainWrapper {
   display: flex;
@@ -148,15 +148,6 @@ input{
 		margin-left: 3vw;
 		width: 90vw;
 	}
-}
-.Site {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
-
-.Site-content {
-  flex: 1;
 }
 
 .signup_text {
