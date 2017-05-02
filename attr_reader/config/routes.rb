@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :books, :except => [:update]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  
+
 
   devise_scope :user do
     get "/users/sign_out", to: "devise/sessions#new"
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get "/search", to: "books#search"
   get "/search/results", to: "books#results"
   get "/party", to: "books#party"
-  get "/books/request_trade", to: "books#request_trade"
+  get "/search/request_trade", to: "search#request_trade"
   get "/users/sign_up", to: "devise#welcome_email"
 
   get "/:user_id", to: "books#index"

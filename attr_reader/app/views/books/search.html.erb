@@ -8,14 +8,14 @@
     <br>
   <%= f.submit "Search" , class: "findsubmit" %>
 <% end %>
- 
+
 <ul class="searchul">
 
 <% @search_result.each do |book| %>
 <hr>
   <li><%= book.title %> <%= book.author %> <%= book.genre %> owned by:  <%= book.user.email %> Request book:
   	<br>
-   <a href="mailto:<%=book.user.email%>">Request book</a>
+      <a href="/search/request_trade?id=<%= book.id %>">Request book</a>
     | <a href="/<%= book.user.id %>/book_list" >Check out their profile</a></li>
 <% end %>
 </ul>

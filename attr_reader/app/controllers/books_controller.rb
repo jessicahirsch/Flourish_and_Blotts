@@ -34,7 +34,7 @@ class BooksController < ApplicationController
     else
       redirect_to "/users/sign_in"
     end
-  end 
+  end
 
   def new
     if user_signed_in?
@@ -93,22 +93,6 @@ class BooksController < ApplicationController
     Book.destroy(params[:id])
     redirect_to("/#{current_user.id}")
   end
-
-
-  def request_trade
-    #Making the book trade request, whatever that meanzs
-    # Send a message to the user or whatever?
-
-    @current_user = User.find(current_user.id)
-    book = Book.find(params[:id])
-    UserMailer.book_trade(book, @current_user).deliver_now
-    book.update_attribute(:status, "Requested")
-    redirect_to "/books"
-  end
-
-  # def create
-  #   super
-  # end
 
   def welcome_send
     @current_user = User.find(current_user.id)

@@ -5,7 +5,7 @@
   <div id="bookshelf">
     <% @books.each_with_index do |book, i| %>
       <div class="books_image" style=<%= "background-image:url('/assets/book#{rand(25..46)}');left:#{i * 3.3}vw" %>><span class="title_text"> <%= book[:title] %></span></div>
-    <% end %>   
+    <% end %>
   </div>
 
 <ul class="findtitle">
@@ -23,7 +23,7 @@
     <li><strong><%= book[:title] %></strong><br>
       <%= book[:author] %><br>
       ISBN: <%= book[:isbn] %><br>
-      <a href="/books/request_trade?id=<%= book.id %>">Request Book</a>
+      <a href="/search/request_trade?id=<%= book.id %>">Request Book</a>
     <% end %>
   <% end %>
 </ul>
