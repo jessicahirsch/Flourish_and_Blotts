@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
 <%= render 'layouts/header' %>
+<br><br><br><h1 class="searchbar">Add a Book</h1>
 <body class="booksadd">
-<br><br><br><h1 class="searchbar">Add a book</h1>
 <h2><%=@msg%></h2>
 
 <%= form_tag "/party", class: "partyform", method: "get", url: ("/party") do %>
