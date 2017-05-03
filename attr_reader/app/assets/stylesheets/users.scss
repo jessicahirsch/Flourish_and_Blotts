@@ -181,8 +181,8 @@ input{
 .field{
 	max-width: 620px;
 }
-@media only screen and (max-width: 430px) {
-	.container{
+@media only screen and (max-width: 630px) {
+/*	.container{
 	flex-direction: column;
 	}
 	.logo{
@@ -200,7 +200,25 @@ input{
 	}
 	.edit_user,.cancel_user{
 	margin-left: 5vw;
-}
+}*/	
+	
+	.pagelogin{
+	background: white;
+    flex: 1;
+    font-weight: 500;
+    padding: 10px;
+    padding-left: 50px;
+    padding-right: 24px;
+	}
+	.signup {
+    background: white;
+    flex: 1;
+    font-weight: 400;
+    padding: 10px;
+    padding-left: 50px;
+    padding-right: 25px;
+    cursor: pointer;
+	}
 }
 
 
