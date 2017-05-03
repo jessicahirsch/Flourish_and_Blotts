@@ -9,32 +9,32 @@
     <% end %>
   </div>
 
-<ul class="findtitle">
+<ul class="detailbooklist">
   <% if @user == @userid %>
 
     <% @books_list.each do |book| %>
       <% if book[:status] == "Shelfed" %>
         <hr/>
-        <li><%= book[:title] %> - <%= book[:author] %><br>
+        <li><strong><%= book[:title] %></strong> - <%= book[:author] %><br>
           ISBN: <%= book[:isbn] %><br>
           Status: <%= book[:status] %><br>
           Remove book: <%= link_to "Remove Book", book, method: :delete %> </li>
       <% elsif book[:status] == "In Use" %>
         <hr/>
-        <li><%= book[:title] %> - <%= book[:author] %><br>
+        <li><strong><%= book[:title] %></strong> - <%= book[:author] %><br>
           ISBN: <%= book[:isbn] %><br>
           Status: <%= book[:status] %><br>
           Add book to shelf: <a href="/books/shelf_it?id=<%= book.id %>">To the Shelf!</a>
           Remove book: <%= link_to "Remove Book", book, method: :delete %> </li>
       <% elsif book[:status] == "Requested" %>
         <hr/>
-        <li><%= book[:title] %> - <%= book[:author] %><br>
+        <li><strong><%= book[:title] %></strong> - <%= book[:author] %><br>
           ISBN: <%= book[:isbn] %><br>
           Status: <%= book[:status] %><br>
           Confirm Shipment: <a href="/:user_id/book_list/spam?id=<%= book.id %>">I sent the book!</a>
       <% elsif book[:status] == "En Route" %>
         <hr/>
-        <li><%= book[:title] %> - <%= book[:author] %><br>
+        <li><strong><%= book[:title] %></strong> - <%= book[:author] %><br>
           ISBN: <%= book[:isbn] %><br>
           Status: <%= book[:status] %><br>
           Confirm book as recieved: <a href="/books/recieved?id=<%= book.id %>">Confirmed!</a>
@@ -53,3 +53,4 @@
 </ul>
 </body>
 <% end %>
+<%= render 'layouts/footer' %>
