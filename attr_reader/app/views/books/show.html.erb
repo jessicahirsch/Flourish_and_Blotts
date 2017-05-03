@@ -31,7 +31,7 @@
         <li><strong><%= book[:title] %></strong> - <%= book[:author] %><br>
           ISBN: <%= book[:isbn] %><br>
           Status: <%= book[:status] %><br>
-          Confirm Shipment: <a href="/:user_id/book_list/spam?id=<%= book.id %>">I sent the book!</a>
+          Confirm Shipment: <a href="/<%= @user.to_i %>/book_list/spam?id=<%= book.id %>">I sent the book!</a>
       <% elsif book[:status] == "En Route" %>
         <hr/>
         <li><strong><%= book[:title] %></strong> - <%= book[:author] %><br>
