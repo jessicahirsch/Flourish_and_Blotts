@@ -2,6 +2,7 @@
   <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+<body class="editbody1">
 <%= render "layouts/header" %>
 <div class="edit_profile">
 <h2 class="editname">Edit User Information for: <%= current_user.username %></h2>
@@ -103,5 +104,6 @@
 
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 </div>
-</div>
 
+</div>
+</body>
