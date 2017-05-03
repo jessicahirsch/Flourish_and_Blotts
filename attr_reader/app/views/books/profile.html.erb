@@ -4,11 +4,11 @@
 
 <% if user_signed_in? %>
 <div class="profilemain">
-
 <%= render 'layouts/header' %>
 
+
 <div class="profilecontent">
-  <hr> <hr>
+  <hr>
 <h1>Profile Page</h1>
 <h2>Welcome, <%= @user.username.capitalize %> &nbsp; <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Pencil_icon_vector.svg/320px-Pencil_icon_vector.svg.png" height="24px" width="24px" onclick="edit()"> </h2>
   <p>Username: <%= @user.username %></p>
@@ -24,10 +24,9 @@
   <br>Phone: <%= @user.phone %></p>
 
 <br><a href="/users/edit" >Edit your info</a>
- <hr>
 </div>
 
-<%= render "layouts/footer" %>
+<%= render 'layouts/footer' %>
 </div>
 <% end %>
 
