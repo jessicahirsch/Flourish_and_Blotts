@@ -1,5 +1,6 @@
 <% if user_signed_in? %>
 <%= render 'layouts/header' %>
+<body class="booksadd">
 <br><br><br><h1 class="searchbar">Add a book</h1>
 <h2><%=@msg%></h2>
 
@@ -25,6 +26,7 @@
 <%= book[:genre] %><br>
 <%= button_to "Add Book to Shelf", {action: "create"}, class: "addbook", params: {"title" => book[:title] , "authors" => book[:authors], "isbn" => book[:isbn], "description" => book[:description], "genre" => book[:genre], "user_id" => current_user.id} %>
 </p>
+</body>
 <% end %>
 
 

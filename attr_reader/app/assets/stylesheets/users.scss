@@ -173,7 +173,14 @@ input{
 .editname{
 	text-align: center;
 }
-
+.editbody1{
+	background: url('http://www140.lunapic.com/do-not-link-here-use-hosting-instead/149309782255125?6032907837');
+	background-repeat: no-repeat;
+	background-size: 100vw 100vh;
+}
+.field{
+	max-width: 620px;
+}
 @media only screen and (max-width: 430px) {
 	.container{
 	flex-direction: column;
