@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(version: 20170502224222) do
     t.string   "book_places"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.string   "email"
   end
 
   create_table "users", force: :cascade do |t|

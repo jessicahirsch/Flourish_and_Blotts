@@ -42,6 +42,19 @@
 	background: #e74c3c;
 	border: #e74c3c;
 }
+.profilemain{
+	background: url('https://images.unsplash.com/photo-1485359466996-ba9d9b4958b9?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=&bg=');
+	background-repeat: no-repeat;
+	background-size: 100vw 120vh;	
+	text-align: center;
+	height: 95vh;
+}
+.profilecontent{
+	background: white;
+	margin-left: 20vw;
+	margin-right: 20vw;
+	height: 78vh;
+}
 @media screen and (max-width: 430px){
 	.partyform,.addbook{
 		margin-left: 0vw;
@@ -56,4 +69,5 @@
 		max-width: 70vw;
 	}
 }
+
 
