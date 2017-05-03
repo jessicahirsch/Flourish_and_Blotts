@@ -21,7 +21,8 @@ class BooksController < ApplicationController
       @userid = params[:user_id]
       @user = current_user.id.to_s
       if @user.to_s == params[:user_id]
-        @books = Book.where(["user_id = ? and status = ?", params[:user_id], "Shelfed"])
+        @books_shelf = Book.where(["user_id = ? and status = ?", params[:user_id], "Shelfed"]).or(Book.where( ["user_id = ? and status = ?", params[:user_id], "Requested"]))
+        @books_list = Book.where(["user_id = ?", params[:user_id]])
         @message = "My Bookshelf Info"
       else
         @books = Book.where(["user_id = ? and status = ?", params[:user_id], "Shelfed"])
