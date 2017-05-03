@@ -71,6 +71,11 @@ footer div.copy_info {
 .mybooks{
     margin-left: 30vw;
 }
+.apilist {
+  margin-left: 4vw;
+  margin-right: 4vw;
+  background: rgba(180,180,180, .5)
+}
 #bookshelf {
   margin-top: 5vw;
   position: relative;
@@ -120,7 +125,7 @@ footer div.copy_info {
 .alert,.notice{
    display: inline;
    text-align: center;
-   margin-left:20vw;
+   margin-left: 20vw;
  }
  body{
    margin: 0px;
@@ -139,7 +144,7 @@ footer div.copy_info {
    position: relative;
    top: 2vh;
    font-size: 1.7em;
-   margin-left:5vw;
+   margin-left: 5vw;
  }
  .navitem a{
    text-decoration: none;
@@ -178,6 +183,6 @@ footer div.copy_info {
      margin-left:3vw;
    }
    .mybooks{
-    margin-`left: 5vw;
+    margin-left: 5vw;
    }
 }

@@ -14,20 +14,21 @@
 
 <br>
 <br>
-
+<div class="apilist">
 <% @book_details.each do |book| %>
 <hr/>
-<p class="findtitle"><strong><%= book[:title] %></strong></p>
+<h3 class="findtitle"><strong><%= book[:title] %></strong></h3>
 	<br><br>
 <p class="findbooks">
-<%= book[:authors] %><br>
-<%= book[:isbn] %><br>
+Author(s): <%= book[:authors] %><br>
+ISBN: <%= book[:isbn] %><br>
 <%= book[:description] %><br>
-<%= book[:genre] %><br>
+<%= book[:genre] %><br><br>
 <%= button_to "Add Book to Shelf", {action: "create"}, class: "addbook", params: {"title" => book[:title] , "authors" => book[:authors], "isbn" => book[:isbn], "description" => book[:description], "genre" => book[:genre], "user_id" => current_user.id} %>
 </p>
 </body>
 <% end %>
+</div>
 
 
 
