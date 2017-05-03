@@ -24,10 +24,11 @@ class BooksController < ApplicationController
       @user = current_user.id.to_s
       if @user.to_s == params[:user_id]
         @books = Book.where(user_id: params[:user_id])
-        @message = "This is the logged in user"
+        @message = "My Bookshelf Info"
       else
         @books = Book.where(user_id: params[:user_id])
-        @message = "Oh no"
+        @user = User.find_by(id: params[:user_id])
+        @message = "#{@user[:username]}'s Books!"
       end
     elsif request.path == "/sign_up" || request.path == "/signup"
       redirect_to "/users/sign_up"

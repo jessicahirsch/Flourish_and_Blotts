@@ -69,26 +69,26 @@ footer div.copy_info {
     margin-left: 30vw;
 }
 #bookshelf {
-  margin-top: 8vw;
+  margin-top: 5vw;
   position: relative;
-  height: 38em;
-  margin-left: 15%;
-  margin-right: 15%;
+  height: 39vw;
+  margin-left: 5vw;
+  margin-right: 5vw;
   display: block;
   background-image: url(/assets/emptyshelf.png);
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: contain;
+  overflow: hidden;
 }
 
 .books_image {
   position: absolute;
-  bottom: 30vw;
+  bottom: 32vw;
   width: 30vw;
   height: 3.4vw;
   display: block;
   transform: rotate(270deg);
-  text-align: center;
   background-size: contain;
   background-repeat: no-repeat;
 }
