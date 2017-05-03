@@ -1,7 +1,7 @@
 
 <% if user_signed_in? %>
 <%= render "layouts/header" %>
-<h1 class="bookshelftitle">My Bookshelf Info</h1>
+<h1 class="bookshelftitle"><%= @message %></h1>
   <div id="bookshelf">
     <% @books.each_with_index do |book, i| %>
       <div class="books_image" style=<%= "background-image:url('/assets/book#{rand(25..46)}');left:#{i * 3.3}vw" %>><span class="title_text"> <%= book[:title] %></span></div>
@@ -13,22 +13,26 @@
 
     <% @books.each do |book| %>
       <% if book[:status] == "Shelfed" %>
+        <hr/>
         <li><%= book[:title] %> - <%= book[:author] %><br>
           ISBN: <%= book[:isbn] %><br>
           Status: <%= book[:status] %><br>
           Remove book: <%= link_to "Remove Book", book, method: :delete %> </li>
       <% elsif book[:status] == "In Use" %>
+        <hr/>
         <li><%= book[:title] %> - <%= book[:author] %><br>
           ISBN: <%= book[:isbn] %><br>
           Status: <%= book[:status] %><br>
           Add book to shelf: <a href="/books/shelf_it?id=<%= book.id %>">To the Shelf!</a>
           Remove book: <%= link_to "Remove Book", book, method: :delete %> </li>
       <% elsif book[:status] == "Requested" %>
+        <hr/>
         <li><%= book[:title] %> - <%= book[:author] %><br>
           ISBN: <%= book[:isbn] %><br>
           Status: <%= book[:status] %><br>
           Confirm Shipment: <a href="/:user_id/book_list/spam?id=<%= book.id %>">I sent the book!</a>
       <% elsif book[:status] == "En Route" %>
+        <hr/>
         <li><%= book[:title] %> - <%= book[:author] %><br>
           ISBN: <%= book[:isbn] %><br>
           Status: <%= book[:status] %><br>
@@ -38,6 +42,7 @@
     <% else %>
       <% @books.each do |book| %>
         <% if book[:status] == "Shelfed" %>
+          <hr/>
           <li><%= book[:title] %> - <%= book[:author] %><br>
             ISBN: <%= book[:isbn] %><br>
             Request book: <a href="/search/request_trade?id=<%= book.id %>">Request it!</a>
