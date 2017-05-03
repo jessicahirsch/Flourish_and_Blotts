@@ -5,7 +5,7 @@
 <%= render 'layouts/header' %>
 	<br><br>
 <%= search_form_for @search, class: "partyform", url: ('/search')  do |f| %>
-  <%= f.label "Search by Title, Author, Genre or ISBN" %>
+  <div class="search_label"><%= f.label "Search by Title, Author, Genre or ISBN" %></div>
   <br>
   <%= f.search_field :title_or_author_or_isbn_or_genre_cont %>
     <br>
