@@ -29,7 +29,7 @@ class UserMailer < ApplicationMailer
     @url = '#'
     @help = user
     puts "email for shipment confirmation"
-    mail(to: user, subject: "More Knowledge is headed your way!")
+    mail to: user, subject: " #{book.title} is headed your way!"
   end
 
 end
