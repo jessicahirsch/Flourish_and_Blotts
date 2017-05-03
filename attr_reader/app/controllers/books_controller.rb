@@ -1,12 +1,10 @@
 class BooksController < ApplicationController
-#  before_action :require_user
+
 
   def index
     if user_signed_in?
       @user = current_user.id
       @books = Book.where(["user_id = ? and status = ?", params[:user_id], "Shelfed"])
-    # elsif params[:id] == "sign_up"
-    #   redirect_to "/users/sign_up"
     elsif request.path == "/sign_up" || request.path == "/signup"
       redirect_to "/users/sign_up"
     else
@@ -73,7 +71,6 @@ class BooksController < ApplicationController
 
   def create
     if(current_user.street != "" && current_user.city != "")
-      puts "#{current_user.street} #{current_user.city} foobar foobar"
     Book.create(title: params[:title],
       author: params[:authors],
       isbn: params[:isbn],
@@ -83,7 +80,7 @@ class BooksController < ApplicationController
       status: "Shelfed")
     redirect_to("/#{current_user.id}")
     else
-    flash[:notice] = "#{current_user.street} #{current_user.city}Please add your address in your my profile settings before adding a book to your shelf"
+    flash[:notice] = "#{current_user.username} Please add your address in your my profile settings before adding a book to your shelf"
        redirect_to("/#{current_user.id}/add_a_book")
     end
   end
@@ -105,11 +102,6 @@ class BooksController < ApplicationController
     book = Book.find(params[:id])
     book.update_attribute(:status, "In Use")
     redirect_to "/current_user.id/book_list"
-  end
-
-  def welcome_send
-    @current_user = User.find(current_user.id)
-    UserMailer.welcome_send(@current_user).deliver_now
   end
 
   def search
