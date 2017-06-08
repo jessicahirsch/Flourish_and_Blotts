@@ -25,7 +25,7 @@ class BooksController < ApplicationController
         @books_list = Book.where(["user_id = ?", params[:user_id]])
         @message = "My Bookshelf Info"
       else
-        @books = Book.where(["user_id = ? and status = ?", params[:user_id], "Shelfed"])
+        @books_shelf = Book.where(["user_id = ? and status = ?", params[:user_id], "Shelfed"])
         @user = User.find_by(id: params[:user_id])
         @message = "#{@user[:username]}'s Books!"
       end
