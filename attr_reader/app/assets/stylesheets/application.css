@@ -50,6 +50,10 @@ footer div.footer_links {
   list-style-type: none;
 }
 
+footer li {
+  list-style-type: none;
+}
+
 footer div.copy_info {
   margin-left: 1200px;
   float: right;

@@ -140,7 +140,7 @@ input {
 }
 
 .search_background {
-  background-image: url('books_white_bg.jpg');
+  background: image-url('books_white_bg.jpg');
   background-repeat: no-repeat;
   position: absolute;
   padding-top:60px;
@@ -150,7 +150,7 @@ input {
 }
 
 .booksadd {
-  background-image: url('add_book_bg.jpg');
+  background: image-url('add_book_bg.jpg');
   background-repeat: no-repeat;
   position: absolute;
   padding-top:60px;
