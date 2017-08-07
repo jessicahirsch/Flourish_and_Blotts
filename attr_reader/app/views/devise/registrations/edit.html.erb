@@ -2,16 +2,19 @@
   <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+<body class="editbody1">
 <%= render "layouts/header" %>
-<h2 class="editname">Edit <%= current_user.username %></h2>
+<div class="edit_profile">
+<h2 class="editname">Edit User Information for: <%= current_user.username %></h2>
 
+<div class="profile_edit_form">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
-  </div>
+  </div><br>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
@@ -24,74 +27,74 @@
       <br />
       <em><%= @minimum_password_length %> characters minimum</em>
     <% end %>
-  </div>
+  </div><br>
 
     <div class="field">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
+  </div><br>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+  </div><br>
 
 
 
   <div class="field">
     <%= f.label :username %><br />
     <%= f.text_field :username %>
-  </div>
+  </div><br>
 
   <div class="field">
     <%= f.label :firstname %><br />
     <%= f.text_field :firstname %>
-  </div>
+  </div><br>
 
   <div class="field">
     <%= f.label :lastname %><br />
     <%= f.text_field :lastname %>
-  </div>
+  </div><br>
 
   <div class="field">
     <%= f.label :genre %><br />
     <%= f.text_field :genre %>
-  </div>
+  </div><br>
 
   <div class="field">
     <%= f.label :state %><br />
     <%= f.text_field :state %>
-  </div>
+  </div><br>
 
   <div class="field">
     <%= f.label :city %><br />
     <%= f.text_field :city %>
-  </div>
+  </div><br>
 
   <div class="field">
     <%= f.label :street %><br />
     <%= f.text_field :street %>
-  </div>
+  </div><br>
 
   <div class="field">
     <%= f.label :building_num %><br />
     <%= f.text_field :building_num %>
-  </div>
+  </div><br>
 
   <div class="field">
     <%= f.label :zip_code %><br />
     <%= f.text_field :zip_code %>
-  </div>
+  </div><br>
 
   <div class="field">
     <%= f.label :apt_num %><br />
     <%= f.text_field :apt_num %>
-  </div>
+  </div><br>
 
   <div class="field">
     <%= f.label :phone %><br />
     <%= f.text_field :phone %>
-  </div>
+  </div><br>
 
   <div class="actions">
     <%= f.submit "Update" %>
@@ -102,4 +105,7 @@
 
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 </div>
+</div>
 
+</div>
+</body>

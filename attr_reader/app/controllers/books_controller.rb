@@ -4,7 +4,7 @@ class BooksController < ApplicationController
   def index
     if user_signed_in?
       @user = current_user.id
-      @books = Book.where(["user_id = ? and status = ?", params[:user_id], "Shelfed"])
+      @books = Book.where(["user_id = ? and status = ?", params[:user_id], "Shelfed"]
     elsif request.path == "/sign_up" || request.path == "/signup"
       redirect_to "/users/sign_up"
     else
@@ -19,10 +19,11 @@ class BooksController < ApplicationController
       @userid = params[:user_id]
       @user = current_user.id.to_s
       if @user.to_s == params[:user_id]
-        @books = Book.where(["user_id = ? and status = ?", params[:user_id], "Shelfed"])
+        @books_shelf = Book.where(["user_id = ? and status = ?", params[:user_id], "Shelfed"]).or(Book.where( ["user_id = ? and status = ?", params[:user_id], "Requested"]))
+        @books_list = Book.where(["user_id = ?", params[:user_id]])
         @message = "My Bookshelf Info"
       else
-        @books = Book.where(["user_id = ? and status = ?", params[:user_id], "Shelfed"])
+        @books_shelf = Book.where(["user_id = ? and status = ?", params[:user_id], "Shelfed"])
         @user = User.find_by(id: params[:user_id])
         @message = "#{@user[:username]}'s Books!"
       end

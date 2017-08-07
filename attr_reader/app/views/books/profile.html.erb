@@ -4,33 +4,30 @@
 
 <% if user_signed_in? %>
 <div class="profilemain">
-
 <%= render 'layouts/header' %>
 
+
 <div class="profilecontent">
-  <hr> <hr>
+  <hr>
 <h1>Profile Page</h1>
 <h2>Welcome, <%= @user.username.capitalize %> &nbsp; <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Pencil_icon_vector.svg/320px-Pencil_icon_vector.svg.png" height="24px" width="24px" onclick="edit()"> </h2>
-<br>
   <p>Username: <%= @user.username %></p>
-  <br><p>Email: <%= @user.email %><br>
+  <p>Email: <%= @user.email %><br>
   <br>First Name: <%= @user.firstname %><br>
   <br>Last Name: <%= @user.lastname %><br>
   <br>Favorite Genre: <%= @user.genre %><br>
   <br> Address: <br></p>
-  <p><%= @user.building_num %> <%= @user.street %> <%= @apt_num %>
+  <p><%= @user.building_num %> <%= @user.street %> <%= @apt_num %><br>
   <%= @user.city %>
-  <%= @user.state %>
-  <%= @user.zip_code %>
+  <%= @user.state %><br>
+  <%= @user.zip_code %><br>
   <br>Phone: <%= @user.phone %></p>
 
 <br><a href="/users/edit" >Edit your info</a>
- <hr>
 </div>
 
-<br><br><br><br><br><br><br>
+<%= render 'layouts/footer' %>
 </div>
-</body>
 <% end %>
 
 

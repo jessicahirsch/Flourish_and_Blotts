@@ -21,10 +21,7 @@ body.loginbody .mainWrapper {
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-input{
-	width: 48vw;
-}
-.header{
+.header {
 	margin: 0;
 	font-family: 'Nova Flat', cursive;
 	padding: 10px;
@@ -33,11 +30,12 @@ input{
   text-shadow: 5px 5px 10px rgb(124, 2, 0);
 }
 
-.container{
+.container {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 }
+
 .trade {
 	flex:1;
 	color: white;
@@ -47,32 +45,38 @@ input{
 	margin-right: 30px;
   font-family: 'Ubuntu', sans-serif;
 }
-.setup{
+
+.setup {
 	flex:1;
 	margin-top: 5vh;
 	margin-right: 2vw;
   position: relative;
 }
-.users{
+
+.users {
 	display: flex;
 	flex-direction: column;
 }
-.username{
+
+.username {
 	flex:3;
 	padding: 5px;
 }
-.password{
+
+.password {
 	flex:3;
 	padding: 5px;
 }
-.logsign{
+
+.logsign {
 	display: flex;
 	flex-direction: row;
 	margin-bottom: -20px;
   cursor: pointer;
   font-family: 'Ubuntu', sans-serif;
 }
-.login{
+
+.login {
   background: white;
   flex: 1;
   font-weight: 500;
@@ -92,11 +96,13 @@ input{
   padding-right: 0px;
   cursor: pointer;
 }
-.pagesignup{
+
+.pagesignup {
 	border-radius: 10px 0px 0px 0px;
 	order: 1;
 }
-.pagelogin{
+
+.pagelogin {
 	border-radius: 0px 10px 0px 0px;
 	order: 2;
 }
@@ -109,7 +115,7 @@ input{
   color: rgb(255, 185, 0);
 }
 
-.submit{
+.submit {
 	background: #e74c3c;
 	border: #e74c3c;
   padding: 10px;
@@ -118,18 +124,17 @@ input{
   cursor: pointer;
 }
 
+// .field {
+//   padding-left: 100px;
+//   padding-right: 10px;
+// }
 
-.field {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.username,.password,.field{
+.username, .password, .field {
 	background: white;
 }
 
-.username,.password{
-	width: 50vw;
+ .username, .password {
+	// width: 50vw;
 }
 
 .signup_text {
@@ -140,8 +145,7 @@ input{
   font-family: 'Ubuntu', sans-serif;
 }
 
-
-.underscore{
+.underscore {
 	position: relative;
 	top: -10px;
 }
@@ -167,15 +171,17 @@ input{
 .index_header {
   font-size: 20px;
 }
-.edit_user,.cancel_user{
+
+.edit_user, .cancel_user {
 	margin-left: 30vw;
 }
-.editname{
+
+.editname {
 	text-align: center;
 }
 
-@media only screen and (max-width: 430px) {
-	.container{
+@media only screen and (max-width: 630px) {
+/*	.container{
 	flex-direction: column;
 	}
 	.logo{
@@ -193,7 +199,26 @@ input{
 	}
 	.edit_user,.cancel_user{
 	margin-left: 5vw;
-}
+}*/
+
+	.pagelogin {
+	background: white;
+    flex: 1;
+    font-weight: 500;
+    padding: 10px;
+    padding-left: 50px;
+    padding-right: 24px;
+	}
+
+	.signup {
+    background: white;
+    flex: 1;
+    font-weight: 400;
+    padding: 10px;
+    padding-left: 50px;
+    padding-right: 25px;
+    cursor: pointer;
+	}
 }
 
 

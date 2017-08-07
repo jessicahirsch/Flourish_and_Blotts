@@ -1,15 +1,17 @@
 // Place all the styles related to the books controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.searchbar{
+.searchbar {
 	text-align: center;
 	font-family: 'Nova Flat', cursive;
-  margin-top: 100px;
+ 	margin-top: 100px;
 }
-.partyform{
+
+.partyform {
 	margin-left: 20vw;
 }
-.findsubmit{
+
+.findsubmit {
 	max-width: 175px;
 	font-size: 1.1em;
 	background: #3498db;
@@ -18,61 +20,150 @@
 	border-radius: 10px;
 	padding: 10px 0px 10px 0px;
 }
-.findbooks{
+
+.findbooks {
 	margin: 0px 5vw 0px 5vw;
 	text-align: justify;
 }
-.addbook{
-	margin-left: 30vw;
+
+.addbook {
+	margin-left: 22vw;
 }
-.findtitle,.profilebody{
+
+.findtitle, .profilebody {
 	text-align: center;
     list-style: none;
 }
-.indexbooklist{
+
+.detailbooklist {
+    text-align: center;
+    list-style: none;
+    font-size: 19px;
+    color: black;
+}
+
+.indexbooklist {
 	text-align:center;
 	list-style-type: none;
 }
-.searchul{
+
+.searchul {
 	list-style-type:none;
 	margin-right: 5vw;
 	line-height: 20px;
 }
-.searchbutton{
+
+.searchbutton {
 	background: #e74c3c;
 	border: #e74c3c;
 }
-.profilemain{
-	background: url('https://images.unsplash.com/photo-1485359466996-ba9d9b4958b9?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=&bg=');
+
+.profilemain {
+	background: image-url('book_pile.jpg');
 	background-repeat: no-repeat;
-	background-size: 100vw 120vh;
+	position: absolute;
+	padding-top:60px;
+	width: 100vw;
+	height: 103vh;
+	background-size: 100vw 111vh;
 	text-align: center;
-	height: 95vh;
 }
-.profilecontent{
+
+.profilecontent {
 	background: white;
   color: black;
   opacity: 0.7;
 	margin-left: 20vw;
-	margin-right: 20vw;
+	margin-right: 25vw;
 	height: 90vh;
-  font-size: 18px;
+  font-size: 17px;
   font-family: 'Ubuntu', sans-serif;
 }
 
+.editbody1 {
+  text-align: center;
+  // background: rgba(0,0,0,0.5);
+	background: image-url('flowers.jpg');
+	background-repeat: no-repeat;
+	background-size: 100vw 165vh;
+  position: absolute;
+  padding-top:60px;
+  width: 100vw;
+  height: 103vh;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.field {
+  // margin-right: 500px;
+  // opacity: 0;
+  // color: black;
+}
+
+input {
+  width: 65vw;
+}
+
+.search_label {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.navbar {
+  opacity: 1.0;
+}
+
+.profilebody1 {
+  background: rgba(0,0,0,0.5);
+  background: image-url('brickwall.jpg');
+  background-repeat: no-repeat;
+  background-size: 100vw 105vh;
+  position: absolute;
+  padding-top:60px;
+  width: 100vw;
+  height: 103vh;
+  text-align: center;
+}
+
 @media screen and (max-width: 430px){
-	.partyform,.addbook{
-		margin-left: 0vw;
-	}.findsubmit{
-		margin-left: 4vw;
-	}
-	input{
-		margin-left: 3vw;
-		width: 90vw;
-	}
-	.searchul{
-		max-width: 70vw;
-	}
+  .partyform,.addbook{
+    margin-left: 0vw;
+  }.findsubmit{
+    margin-left: 4vw;
+  }
+
+  input{
+    margin-left: 3vw;
+    width: 90vw;
+  }
+  .searchul{
+    max-width: 70vw;
+  }
+}
+
+.search_background {
+  background: image-url('books_white_bg.jpg');
+  background-repeat: no-repeat;
+  position: absolute;
+  padding-top:60px;
+  width: 100vw;
+  height: 103vh;
+  background-size: 100vw 111vh;
+}
+
+.booksadd {
+  background: image-url('add_book_bg.jpg');
+  background-repeat: no-repeat;
+  position: absolute;
+  padding-top:60px;
+  width: 100vw;
+  height: 103vh;
+  background-size: 100vw 140vh;
+  text-align: center;
+}
+
+.search_bar {
+  // left: 50%;
+  // top: 50%;
+  margin: 0px 5vw 0px 5vw;
 }
 
 

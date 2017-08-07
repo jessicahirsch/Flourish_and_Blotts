@@ -1,9 +1,14 @@
-<p>
-  <%= @greeting %>
+<h1><%= @greeting %></h1>
 
-  You've got a book request!
+<h3>You've got a book request!</h3>
 
-  Check out your bookshelf to see which book has been requested!
+You'll be sending the book to:<br>
+<br>
+<strong><%= @recipient0 %> <%= @recipient1 %></strong><br>
 
-</p>
-
+Address:<br>
+<%= @recipient2 %> <%= @recipient3 %>, <%= @recipient4 %><br>
+<%= @recipient5 %>, <%= @recipient6 %><br>
+<%= @recipient7 %><br>
+<br>
+Let them know you've <a href="<%= @url %>">shipped it</a>!

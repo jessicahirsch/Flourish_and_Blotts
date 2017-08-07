@@ -2,17 +2,19 @@
   <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 </head>
 <% if user_signed_in? %>
+<div class="search_background">
 <%= render 'layouts/header' %>
 	<br><br>
+<div class="search_bar">
 <%= search_form_for @search, class: "partyform", url: ('/search')  do |f| %>
-  <%= f.label "Search by Title, Author, Genre or ISBN" %>
+  <div class="search_label"><%= f.label "Search by Title, Author, Genre or ISBN" %></div>
   <br>
   <%= f.search_field :title_or_author_or_isbn_or_genre_cont %>
     <br>
   <div class="signup_text"><%= f.submit "Search" , class: "findsubmit" %></div>
 <% end %>
 
-<ul class="searchul">
+<ul class="searchul" />
 
 <% @search_result.each do |book| %>
 
@@ -22,9 +24,11 @@
     | <a href="/<%= book.user.id %>/book_list" >Check out their shelf!</a></li><br>
   <% end %>
   <% end %>
+</div>
 
 
 
 
 
+</div>
 <% end %>
