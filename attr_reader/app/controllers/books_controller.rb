@@ -4,7 +4,7 @@ class BooksController < ApplicationController
   def index
     if user_signed_in?
       @user = current_user.id
-      @books = Book.where(["user_id = ? and status = ?", params[:user_id], "Shelfed"]
+      @books = Book.where(["user_id = ? and status = ?", params[:user_id], "Shelfed"])
     elsif request.path == "/sign_up" || request.path == "/signup"
       redirect_to "/users/sign_up"
     else
