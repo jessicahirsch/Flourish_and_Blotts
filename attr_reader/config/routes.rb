@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get "/users/sign_up", to: "devise#welcome_email"
   get "/:user_id/book_list/spam", to: "search#shipment_confirmation"
   get "/books/recieved", to: "books#recieved"
-  get "/books/shelf_it", to: "books#ship_it"
+  get "/books/shelf_it", to: "books#shelf_it"
 
 
   get "/:user_id", to: "books#index"
