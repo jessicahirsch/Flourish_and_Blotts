@@ -41,7 +41,7 @@
       <% end %>
       <% end %>
     <% else %>
-      <% @books.each do |book| %>
+      <% @books_shelf.each do |book| %>
         <% if book[:status] == "Shelfed" %>
           <hr/>
           <li><%= book[:title] %> - <%= book[:author] %><br>
